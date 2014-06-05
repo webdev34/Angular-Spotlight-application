@@ -1,0 +1,415 @@
+<div class="hidden-modal"></div>
+<div class="student-excerpt" >
+<section class="saved-excerpt-container">
+  <div class="saved-excerpts column-1">
+    <button class="add-new-box" ng-hide="leftColumn.showGhost" ng-click="leftColumn.showGhostBox()" ng-disabled="!editingAllowed">add to left column</button>
+    <section class="new-excerpt" ng-class="{'editing-disallowed': !editingAllowed, 'edit-mode': leftColumn.boxAttr}">
+      <section class="editbox" ng-show="leftColumn.showGhost">
+        <textarea toggle-draggable="true" ng-model="leftColumn.newExcerpt.content"  ng-focus="leftColumn.showAttr('left'); disableFixed(); disablePageScroll()" placeholder="Write or paste excerpt here.." ng-disabled="!leftColumn.boxAttr && !editingAllowed"></textarea>
+        <section class="student-attr" ng-show="leftColumn.boxAttr">
+          <button class="ctrl-btn select-student" ng-click="toggleStudentName()" ng-hide="showRoster">select student...</button>
+          
+          <div class="student-name" >
+          <input  ng-model="leftColumn.newExcerpt.author" class="student-name-input"  ng-class="{selected: 
+                  attributedStudentId}" ng-show="showRoster" placeholder="Add/select student" disabled="disabled" />
+            <div class="triangle" ng-show="showRoster"></div>
+            <div class="triangle inner-triangle" ng-show="showRoster"></div>
+          </div>
+
+          <section class="student-roster-container" ng-show="showRoster">
+          <button class="anonymous-author-btn" ng-click="selectedStudent('anonymous')">
+                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   width="19.025px" height="19.965px" viewBox="0 0 19.025 19.965" style="enable-background:new 0 0 19.025 19.965;"
+   xml:space="preserve">
+                <g class="anonymous-author-svg">
+                  <path d="M18.077,14.039c0.521-0.15,0.949,0.174,0.949,0.723v4.205c0,0.549-0.445,0.998-0.988,0.998H0.987
+                    C0.444,19.965,0,19.516,0,18.967v-4.208c0-0.549,0.426-0.872,0.947-0.717l7.394,2.19c0.521,0.153,1.375,0.16,1.898,0.012
+                    L18.077,14.039z"/>
+                  <path d="M3.1,7.786C3.835,5.188,4.106-0.039,5.303,0C6.5,0.039,8.663,2.717,9.329,2.717c0.667,0,3.637-1.638,4.382-1.579
+                    c0.746,0.059,1.823,4.91,2.389,6.454c0.057,0.153,0.133,0.202,0.291,0.197c0.458-0.01,0.916-0.005,1.374-0.002
+                    c0.089,0,0.183,0.007,0.27,0.032c0.2,0.06,0.307,0.208,0.299,0.414c-0.01,0.216-0.133,0.362-0.347,0.401
+                    c-0.107,0.02-0.216,0.014-0.324,0.014c-5.436,0-10.871,0-16.305,0c-0.101,0-0.201,0.003-0.299-0.009
+                    c-0.218-0.026-0.377-0.193-0.377-0.4c0-0.229,0.11-0.384,0.339-0.432c0.081-0.017,0.166-0.02,0.249-0.02
+                    C1.869,7.786,2.466,7.786,3.1,7.786z"/>
+                  <path d="M6.125,11.345c0.665,0,1.329-0.002,1.994,0c0.411,0.001,0.567,0.188,0.519,0.606c-0.084,0.701-0.297,1.372-1.307,1.363
+                    c-1.01-0.008-3.624-1.174-3.702-1.41c-0.097-0.299,0.106-0.555,0.45-0.559C4.761,11.341,5.443,11.345,6.125,11.345z"/>
+                  <path d="M12.655,11.345c0.667,0,1.331-0.002,1.996,0c0.411,0.001,0.567,0.188,0.518,0.606c-0.086,0.701-0.297,1.372-1.306,1.363
+                    c-1.008-0.008-3.624-1.174-3.703-1.41c-0.098-0.299,0.107-0.555,0.452-0.559C11.293,11.341,11.975,11.345,12.655,11.345z"/>
+                </g>
+                </svg> Make Anonymous
+                </button>
+            <header class="student-roster-header">
+              <span>Current Roster</span>
+            </header>
+            <ul class="student-roster">
+            
+              <li ng-repeat="student in currentRoster" ng-class="{active:student.key === attributedStudentId}" ng-click="selectedStudent(student)">
+                <span class="student-full-name">{{student.firstName}} {{student.lastName}}</span>
+              </li>
+            </ul>
+          </section>
+            <div class="tag-editor">
+              <p class="tag-editor-title">Tags skills</p>
+              <ul class="tag-select" ng-model="leftColumn.newExcerpt.skills">
+                <li ng-repeat="item in leftColumn.newExcerpt.skills">
+                  <span class="tag-label" ng-click="toggleTag(item)" ng-class="{'active': item.checked}">{{item.value}}
+                    <i ng-class="{'delete-tag' : !item.predefined}" ng-if="item.predefined == false" ng-click="deleteTag(leftColumn.newExcerpt.skills, $index)">
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   width="9.856px" height="10px" viewBox="0 0 9.856 10" style="enable-background:new 0 0 9.856 10;" xml:space="preserve">
+                    <path class="delete-prefined-svg" d="M9.131,0C8.927,0,8.725,0.076,8.581,0.224L4.927,4.012L1.274,0.224C1.133,0.076,0.93,0,0.726,0
+                      C0.559,0,0.39,0.05,0.253,0.153c-0.304,0.23-0.339,0.635-0.08,0.905L3.974,5l-3.8,3.94c-0.26,0.271-0.225,0.675,0.08,0.905
+                      C0.39,9.949,0.556,10,0.725,10c0.203,0,0.407-0.077,0.549-0.225l3.654-3.788l3.653,3.788C8.725,9.923,8.927,10,9.131,10
+                      c0.167,0,0.335-0.05,0.472-0.154c0.303-0.23,0.339-0.635,0.079-0.905L5.88,4.999l3.8-3.942c0.259-0.269,0.225-0.674-0.08-0.904
+                      C9.465,0.05,9.298,0,9.131,0"/>
+                    </svg>
+                    </i>
+                  </span>
+                </li>
+              </ul>
+              <input type="text" ng-model="leftColumn.newTag.value" placeholder="Add new skill..." ng-focus="disableFixed()"/>
+              <button class="ctrl-btn add-tag" ng-click="leftColumn.addTag(leftColumn.newExcerpt)" ng-disabled="!leftColumn.newTag.value">Add</button>
+            </div>
+            <button class="ctrl-btn cancel-excerpt" ng-click="leftColumn.discardNewExcerpt(leftColumn.newExcerpt); enableFixed()" toggle-draggable="false">Cancel</button>
+            <button class="ctrl-btn save-excerpt" ng-click="leftColumn.saveExcerpt(leftColumn.newExcerpt); enableFixed()" ng-disabled="!(leftColumn.newExcerpt.author && leftColumn.newExcerpt.content)" toggle-draggable="false">Post Excerpt</button>
+            </section>
+      </section>
+    </section>
+    <ul class="saved-excerpts-list" html-sortable="sortable_cross_option" ng-model="leftColumn.excerpts" ng-extra-sortable="leftColumn.side" flag="onDrag">
+      <li class="droppable ng-scope empty-list-holder" ng-if="rightColumn.excerpts.length > 0 && leftColumn.excerpts.length == 0">Drag and Drop Here</li> <!-- Needed for empty list -->
+      <li class="excerpt" ng-repeat="excerpt in leftColumn.excerpts" draggable="{{!editingAllowed}}" ng-class="{'edit-mode':excerpt.editMode, 'editing-disallowed': !editingAllowed}">
+        <section class="excerpt-edit-mode">
+          <div class='excerpt-mode-icon-container'>
+            <i class="remove-button" ng-click="leftColumn.delete(excerpt)" toggle-draggable="false">
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   width="19.031px" height="23.98px" viewBox="0 0 19.031 23.98" style="enable-background:new 0 0 19.031 23.98;"
+   xml:space="preserve">
+            <g class="trash-can-svg">
+              <path d="M3.323,22.213V5.231h12.12v16.981H3.323 M7.634,3.446V1.767h3.497v1.679H7.634 M11.992,0H6.773
+                C6.297,0,5.912,0.396,5.912,0.884v2.581H2.461h-1.6C0.385,3.464,0,3.859,0,4.348c0,0.486,0.385,0.884,0.861,0.884H1.6v17.865
+                c0,0.488,0.385,0.884,0.861,0.884h13.844c0.477,0,0.86-0.396,0.86-0.884V5.231h1.006c0.476,0,0.86-0.396,0.86-0.884
+                c0-0.488-0.385-0.884-0.86-0.884h-1.866h-3.451v-2.58C12.854,0.396,12.468,0,11.992,0"/>
+              <path d="M9.516,6.659c-0.476,0-0.861,0.396-0.861,0.884v12.026c0,0.487,0.385,0.884,0.861,0.884c0.475,0,0.861-0.396,0.861-0.884
+                V7.542C10.377,7.055,9.991,6.659,9.516,6.659"/>
+              <path d="M12.816,6.659c-0.477,0-0.862,0.396-0.862,0.884v12.026c0,0.487,0.386,0.884,0.862,0.884c0.476,0,0.86-0.396,0.86-0.884
+                V7.542C13.677,7.055,13.292,6.659,12.816,6.659"/>
+              <path d="M5.948,6.659c-0.475,0-0.861,0.396-0.861,0.884v12.026c0,0.487,0.387,0.884,0.861,0.884c0.477,0,0.861-0.396,0.861-0.884
+                V7.542C6.81,7.055,6.425,6.659,5.948,6.659"/>
+            </g>
+            </svg>
+            </i>
+          </div>
+          <textarea ng-model="excerpt.content" ng-focus="disableFixed()"></textarea>
+          <button class="ctrl-btn select-student" ng-click="toggleStudentName()" ng-hide="showRoster">select student...</button>
+          <div class="student-name" >
+          <input ng-class="{selected: 
+                  attributedStudentId}" class="student-name-input"  ng-model="excerpt.author" ng-show="showRoster" placeholder="Add/select student" disabled="disabled" />
+            <div class="triangle" ng-show="showRoster"></div>
+            <div class="triangle inner-triangle" ng-show="showRoster"></div>
+          </div>
+          
+          <section class="student-roster-container" ng-show="showRoster">
+           <button class="anonymous-author-btn" ng-click="selectedStudent('anonymous')">
+                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   width="19.025px" height="19.965px" viewBox="0 0 19.025 19.965" style="enable-background:new 0 0 19.025 19.965;"
+   xml:space="preserve">
+                <g class="anonymous-author-svg">
+                  <path d="M18.077,14.039c0.521-0.15,0.949,0.174,0.949,0.723v4.205c0,0.549-0.445,0.998-0.988,0.998H0.987
+                    C0.444,19.965,0,19.516,0,18.967v-4.208c0-0.549,0.426-0.872,0.947-0.717l7.394,2.19c0.521,0.153,1.375,0.16,1.898,0.012
+                    L18.077,14.039z"/>
+                  <path d="M3.1,7.786C3.835,5.188,4.106-0.039,5.303,0C6.5,0.039,8.663,2.717,9.329,2.717c0.667,0,3.637-1.638,4.382-1.579
+                    c0.746,0.059,1.823,4.91,2.389,6.454c0.057,0.153,0.133,0.202,0.291,0.197c0.458-0.01,0.916-0.005,1.374-0.002
+                    c0.089,0,0.183,0.007,0.27,0.032c0.2,0.06,0.307,0.208,0.299,0.414c-0.01,0.216-0.133,0.362-0.347,0.401
+                    c-0.107,0.02-0.216,0.014-0.324,0.014c-5.436,0-10.871,0-16.305,0c-0.101,0-0.201,0.003-0.299-0.009
+                    c-0.218-0.026-0.377-0.193-0.377-0.4c0-0.229,0.11-0.384,0.339-0.432c0.081-0.017,0.166-0.02,0.249-0.02
+                    C1.869,7.786,2.466,7.786,3.1,7.786z"/>
+                  <path d="M6.125,11.345c0.665,0,1.329-0.002,1.994,0c0.411,0.001,0.567,0.188,0.519,0.606c-0.084,0.701-0.297,1.372-1.307,1.363
+                    c-1.01-0.008-3.624-1.174-3.702-1.41c-0.097-0.299,0.106-0.555,0.45-0.559C4.761,11.341,5.443,11.345,6.125,11.345z"/>
+                  <path d="M12.655,11.345c0.667,0,1.331-0.002,1.996,0c0.411,0.001,0.567,0.188,0.518,0.606c-0.086,0.701-0.297,1.372-1.306,1.363
+                    c-1.008-0.008-3.624-1.174-3.703-1.41c-0.098-0.299,0.107-0.555,0.452-0.559C11.293,11.341,11.975,11.345,12.655,11.345z"/>
+                </g>
+                </svg> Make Anonymous
+                </button>
+            <header class="student-roster-header">
+              <span>Current Roster</span>
+            </header>
+              <ul class="student-roster">
+                <li ng-repeat="student in currentRoster" ng-class="{active:student.key === attributedStudentId}" ng-click="selectedStudent(student)">
+                  <span class="student-full-name">{{student.firstName}} {{student.lastName}}</span>
+                </li>
+              </ul>
+          </section>
+            <div class="tag-editor">
+              <p class="tag-editor-title">Tags skills</p>
+              <ul class="tag-select" ng-model="excerpt.skills">
+                <li ng-repeat="item in excerpt.skills">
+                  <span class="tag-label" ng-click="toggleTag(item)" ng-class="{'active': item.checked}">{{item.value}}
+                    <i ng-class="{'delete-tag' : !item.predefined}" ng-if="item.predefined == false" ng-click="deleteTag(excerpt.skills, $index)">
+                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   width="9.856px" height="10px" viewBox="0 0 9.856 10" style="enable-background:new 0 0 9.856 10;" xml:space="preserve">
+                    <path class="delete-prefined-svg" d="M9.131,0C8.927,0,8.725,0.076,8.581,0.224L4.927,4.012L1.274,0.224C1.133,0.076,0.93,0,0.726,0
+                      C0.559,0,0.39,0.05,0.253,0.153c-0.304,0.23-0.339,0.635-0.08,0.905L3.974,5l-3.8,3.94c-0.26,0.271-0.225,0.675,0.08,0.905
+                      C0.39,9.949,0.556,10,0.725,10c0.203,0,0.407-0.077,0.549-0.225l3.654-3.788l3.653,3.788C8.725,9.923,8.927,10,9.131,10
+                      c0.167,0,0.335-0.05,0.472-0.154c0.303-0.23,0.339-0.635,0.079-0.905L5.88,4.999l3.8-3.942c0.259-0.269,0.225-0.674-0.08-0.904
+                      C9.465,0.05,9.298,0,9.131,0"/>
+                    </svg>
+
+                    </i>
+                  </span>
+                </li>
+              </ul>
+              <input type="text" ng-model="leftColumn.newTag.value" placeholder="Add new skill..." ng-focus="disableFixed()"/>
+              <button class="ctrl-btn add-tag" ng-click="leftColumn.addTag(excerpt)" ng-disabled="!leftColumn.newTag.value">Add</button>
+            </div>
+            <button class="ctrl-btn cancel-excerpt" ng-click="leftColumn.cancelEdit(excerpt); enableFixed()" toggle-draggable="false" ng-disabled="!(excerpt.content)">Cancel</button>
+            <button class="ctrl-btn save-excerpt" ng-click="leftColumn.saveEdit(excerpt); enableFixed()" toggle-draggable="false">Post Excerpt</button>
+          </section>
+        <section class="excerpt-display-mode">
+          <header>
+            <span class="excerpt-student-name"  ng-if="excerpt.author != 'anonymous '">{{excerpt.author}}</span>
+            <span class="excerpt-student-name-anonymous"  ng-if="excerpt.author == 'anonymous '">anonymous</span>
+            <div class='excerpt-mode-icon-container'>
+                 <svg class="drag-handle" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   width="22.797px" height="22.985px" viewBox="0 0 22.797 22.985" style="enable-background:new 0 0 22.797 22.985;"
+   xml:space="preserve">
+              <path class="drag-handle-svg" d="M11.398,0c-0.267,0-0.533,0.102-0.736,0.307L7.719,3.274c-0.406,0.41-0.407,1.075,0,1.486
+                c0.203,0.205,0.469,0.307,0.736,0.307c0.266,0,0.534-0.103,0.737-0.308l1.12-1.128L10.31,7.139V7.14v0.477v0.161v2.616l-2.595-0.001
+                h-0.16H7.083H7.082l-3.479,0.001l1.118-1.127c0.406-0.41,0.408-1.076,0-1.485c-0.203-0.205-0.47-0.308-0.736-0.308
+                c-0.266,0-0.534,0.103-0.737,0.308l-2.942,2.966c-0.408,0.411-0.407,1.076,0,1.487l2.943,2.966c0.203,0.205,0.469,0.308,0.735,0.308
+                c0.267,0,0.534-0.104,0.737-0.309c0.406-0.409,0.406-1.073,0-1.484L3.603,12.59l3.952-0.001h2.755l0.001,6.764l-1.12-1.127
+                c-0.203-0.205-0.471-0.308-0.737-0.308c-0.267,0-0.533,0.102-0.736,0.307c-0.407,0.41-0.406,1.076,0,1.485l2.943,2.967
+                c0.203,0.206,0.469,0.308,0.736,0.308c0.267,0,0.534-0.103,0.737-0.308l2.944-2.968c0.406-0.409,0.406-1.074-0.002-1.484
+                c-0.203-0.205-0.469-0.307-0.735-0.307c-0.267,0-0.533,0.103-0.737,0.307l-1.118,1.128l0-6.764l6.708,0.001l-1.119,1.127
+                c-0.406,0.411-0.406,1.075,0,1.484c0.204,0.205,0.471,0.309,0.738,0.309s0.532-0.103,0.735-0.308l2.943-2.966
+                c0.407-0.411,0.407-1.076,0-1.487L19.55,7.782c-0.203-0.205-0.47-0.308-0.737-0.308c-0.267,0-0.534,0.103-0.737,0.308
+                c-0.407,0.409-0.406,1.075,0,1.485l1.119,1.127h-6.708V7.617l0-3.985l1.118,1.129c0.204,0.205,0.47,0.307,0.737,0.307
+                c0.266,0,0.532-0.103,0.735-0.307c0.408-0.411,0.408-1.075,0.002-1.485l-2.944-2.968C11.932,0.103,11.665,0,11.398,0"/>
+              </svg>
+              
+              <a scroll-top class="edit-btn" ng-click="leftColumn.toggleEdit(excerpt, $event)" toggle-draggable="true">
+              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   width="23.021px" height="23.006px" viewBox="0 0 23.021 23.006" style="enable-background:new 0 0 23.021 23.006;"
+   xml:space="preserve">
+          <path class="edit-btn-svg" d="M2.375,21.012c-0.223,0-0.403-0.183-0.403-0.408V6.297c0-0.23,0.177-0.411,0.403-0.411h7.122h3.877L9.806,9.499
+            C9.709,9.595,9.635,9.71,9.585,9.837l-1.571,4.03c-0.145,0.371-0.057,0.793,0.223,1.074c0.188,0.188,0.439,0.289,0.694,0.289
+            c0.124,0,0.249-0.024,0.369-0.072l3.96-1.614c0.123-0.051,0.235-0.125,0.328-0.22l3.434-3.475v10.754
+            c0,0.226-0.181,0.408-0.403,0.408H9.497H2.375 M10.689,12.443l0.656-1.682l7.011-7.097l0.995,1.005l-7.014,7.101L10.689,12.443
+             M20.12,0c-0.818,0-1.348,0.436-1.491,0.566l-0.97,0.983l-0.002,0.002l-2.313,2.341H9.497H2.375C1.065,3.893,0,4.972,0,6.297v14.306
+            c0,1.324,1.065,2.402,2.375,2.402h7.122h7.123c1.309,0,2.374-1.078,2.374-2.402V7.853l3.332-3.373l0.006-0.009l0.053-0.053
+            c0.104-0.098,0.622-0.631,0.636-1.501c0.008-0.477-0.141-1.204-0.896-1.971C21.354,0.165,20.609,0,20.12,0"/>
+          </svg>
+          </a>
+            </div>
+            <div class="quote-triangle"></div>
+            <div class="quote-inner-triangle"></div>
+          </header>
+            <div class="excerpt-container">{{excerpt.content}}</div>
+          <div class="saved-excerpt-tag-wrapper"><span class="saved-excerpt-tag" ng-repeat="skill in excerpt.skills | filter:{checked:true}">{{skill.value}}</span></div>
+        </section>
+      </li>
+        <!-- End of saved excerpts Left-->
+    </ul>
+  </div>
+  
+  <div class="saved-excerpts column-2">
+    <button class="add-new-box" ng-hide="rightColumn.showGhost" ng-click="rightColumn.showGhostBox()" ng-disabled="!editingAllowed">add to right column</button>
+    <section class="new-excerpt" ng-class="{'editing-disallowed': !editingAllowed, 'edit-mode': rightColumn.boxAttr}">
+      <section class="editbox" ng-show="rightColumn.showGhost">
+        <textarea toggle-draggable="true" ng-model="rightColumn.newExcerpt.content" ng-focus="rightColumn.showAttr('right'); disableFixed(); disablePageScroll()" placeholder="Write or paste excerpt here.." ng-disabled="!rightColumn.boxAttr && !editingAllowed"></textarea>
+        <section class="student-attr" ng-show="rightColumn.boxAttr">
+          <button class="ctrl-btn select-student" ng-click="toggleStudentName()" ng-hide="showRoster">select student...</button>
+           <div class="student-name" >
+          <input ng-class="{selected: 
+                  attributedStudentId}" class="student-name-input"  ng-model="rightColumn.newExcerpt.author" ng-show="showRoster" placeholder="Add/select student" disabled="disabled" />
+            <div class="triangle" ng-show="showRoster"></div>
+            <div class="triangle inner-triangle" ng-show="showRoster"></div>
+          </div>
+          <section class="student-roster-container" ng-show="showRoster">
+           <button class="anonymous-author-btn" ng-click="selectedStudent('anonymous')">
+                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   width="19.025px" height="19.965px" viewBox="0 0 19.025 19.965" style="enable-background:new 0 0 19.025 19.965;"
+   xml:space="preserve">
+                <g class="anonymous-author-svg">
+                  <path d="M18.077,14.039c0.521-0.15,0.949,0.174,0.949,0.723v4.205c0,0.549-0.445,0.998-0.988,0.998H0.987
+                    C0.444,19.965,0,19.516,0,18.967v-4.208c0-0.549,0.426-0.872,0.947-0.717l7.394,2.19c0.521,0.153,1.375,0.16,1.898,0.012
+                    L18.077,14.039z"/>
+                  <path d="M3.1,7.786C3.835,5.188,4.106-0.039,5.303,0C6.5,0.039,8.663,2.717,9.329,2.717c0.667,0,3.637-1.638,4.382-1.579
+                    c0.746,0.059,1.823,4.91,2.389,6.454c0.057,0.153,0.133,0.202,0.291,0.197c0.458-0.01,0.916-0.005,1.374-0.002
+                    c0.089,0,0.183,0.007,0.27,0.032c0.2,0.06,0.307,0.208,0.299,0.414c-0.01,0.216-0.133,0.362-0.347,0.401
+                    c-0.107,0.02-0.216,0.014-0.324,0.014c-5.436,0-10.871,0-16.305,0c-0.101,0-0.201,0.003-0.299-0.009
+                    c-0.218-0.026-0.377-0.193-0.377-0.4c0-0.229,0.11-0.384,0.339-0.432c0.081-0.017,0.166-0.02,0.249-0.02
+                    C1.869,7.786,2.466,7.786,3.1,7.786z"/>
+                  <path d="M6.125,11.345c0.665,0,1.329-0.002,1.994,0c0.411,0.001,0.567,0.188,0.519,0.606c-0.084,0.701-0.297,1.372-1.307,1.363
+                    c-1.01-0.008-3.624-1.174-3.702-1.41c-0.097-0.299,0.106-0.555,0.45-0.559C4.761,11.341,5.443,11.345,6.125,11.345z"/>
+                  <path d="M12.655,11.345c0.667,0,1.331-0.002,1.996,0c0.411,0.001,0.567,0.188,0.518,0.606c-0.086,0.701-0.297,1.372-1.306,1.363
+                    c-1.008-0.008-3.624-1.174-3.703-1.41c-0.098-0.299,0.107-0.555,0.452-0.559C11.293,11.341,11.975,11.345,12.655,11.345z"/>
+                </g>
+                </svg> Make Anonymous
+                </button>
+            <header class="student-roster-header">
+              <span>Current Roster</span>
+            </header>
+            <ul class="student-roster">
+              <li ng-repeat="student in currentRoster" ng-class="{active:student.key === attributedStudentId}" ng-click="selectedStudent(student)">
+                <span class="student-full-name">{{student.firstName}} {{student.lastName}}</span>
+              </li>
+            </ul>
+          </section>
+          <div class="tag-editor">
+            <p class="tag-editor-title">Tags skills</p>
+            <ul class="tag-select" ng-model="rightColumn.newExcerpt.skills">
+              <li ng-repeat="item in rightColumn.newExcerpt.skills">
+                <span class="tag-label" ng-click="toggleTag(item)" ng-class="{'active': item.checked}">{{item.value}}
+                  <i ng-class="{'delete-tag' : !item.predefined}" ng-if="item.predefined == false" ng-click="deleteTag(rightColumn.newExcerpt.skills, $index)">
+                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   width="9.856px" height="10px" viewBox="0 0 9.856 10" style="enable-background:new 0 0 9.856 10;" xml:space="preserve">
+                    <path class="delete-prefined-svg" d="M9.131,0C8.927,0,8.725,0.076,8.581,0.224L4.927,4.012L1.274,0.224C1.133,0.076,0.93,0,0.726,0
+                      C0.559,0,0.39,0.05,0.253,0.153c-0.304,0.23-0.339,0.635-0.08,0.905L3.974,5l-3.8,3.94c-0.26,0.271-0.225,0.675,0.08,0.905
+                      C0.39,9.949,0.556,10,0.725,10c0.203,0,0.407-0.077,0.549-0.225l3.654-3.788l3.653,3.788C8.725,9.923,8.927,10,9.131,10
+                      c0.167,0,0.335-0.05,0.472-0.154c0.303-0.23,0.339-0.635,0.079-0.905L5.88,4.999l3.8-3.942c0.259-0.269,0.225-0.674-0.08-0.904
+                      C9.465,0.05,9.298,0,9.131,0"/>
+                    </svg>
+                  </i>
+                </span>
+              </li>
+            </ul>
+            <input type="text" ng-model="rightColumn.newTag.value" placeholder="Add new skill..." ng-focus="disableFixed()"/>
+            <button class="ctrl-btn add-tag" ng-click="rightColumn.addTag(rightColumn.newExcerpt)" ng-disabled="!rightColumn.newTag.value">Add</button>
+          </div>
+          <button class="ctrl-btn cancel-excerpt" ng-click="rightColumn.discardNewExcerpt(rightColumn.newExcerpt); enableFixed()" toggle-draggable="false">Cancel</button>
+          <button  class="ctrl-btn save-excerpt" ng-click="rightColumn.saveExcerpt(rightColumn.newExcerpt); enableFixed()" ng-disabled="!(rightColumn.newExcerpt.author && rightColumn.newExcerpt.content)" toggle-draggable="false">Post Excerpt</button>
+        </section>
+      </section>
+    </section>
+    <ul class="saved-excerpts-list" html-sortable="sortable_cross_option" ng-model="rightColumn.excerpts" ng-extra-sortable="rightColumn.side" flag="onDrag">
+      <li class="droppable ng-scope empty-list-holder" ng-if="leftColumn.excerpts.length > 0 && rightColumn.excerpts.length == 0">Drag and Drop Here</li> <!-- Needed for empty list -->
+      <li class="excerpt" ng-repeat="excerpt in rightColumn.excerpts" draggable="{{!editingAllowed}}" ng-class="{'edit-mode':excerpt.editMode, 'editing-disallowed': !editingAllowed}">
+        <section class="excerpt-edit-mode">
+          <div class='excerpt-mode-icon-container'>
+            <i class="remove-button" ng-click="rightColumn.delete(excerpt)" toggle-draggable="false">
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   width="19.031px" height="23.98px" viewBox="0 0 19.031 23.98" style="enable-background:new 0 0 19.031 23.98;"
+   xml:space="preserve">
+            <g class="trash-can-svg">
+              <path d="M3.323,22.213V5.231h12.12v16.981H3.323 M7.634,3.446V1.767h3.497v1.679H7.634 M11.992,0H6.773
+                C6.297,0,5.912,0.396,5.912,0.884v2.581H2.461h-1.6C0.385,3.464,0,3.859,0,4.348c0,0.486,0.385,0.884,0.861,0.884H1.6v17.865
+                c0,0.488,0.385,0.884,0.861,0.884h13.844c0.477,0,0.86-0.396,0.86-0.884V5.231h1.006c0.476,0,0.86-0.396,0.86-0.884
+                c0-0.488-0.385-0.884-0.86-0.884h-1.866h-3.451v-2.58C12.854,0.396,12.468,0,11.992,0"/>
+              <path d="M9.516,6.659c-0.476,0-0.861,0.396-0.861,0.884v12.026c0,0.487,0.385,0.884,0.861,0.884c0.475,0,0.861-0.396,0.861-0.884
+                V7.542C10.377,7.055,9.991,6.659,9.516,6.659"/>
+              <path d="M12.816,6.659c-0.477,0-0.862,0.396-0.862,0.884v12.026c0,0.487,0.386,0.884,0.862,0.884c0.476,0,0.86-0.396,0.86-0.884
+                V7.542C13.677,7.055,13.292,6.659,12.816,6.659"/>
+              <path d="M5.948,6.659c-0.475,0-0.861,0.396-0.861,0.884v12.026c0,0.487,0.387,0.884,0.861,0.884c0.477,0,0.861-0.396,0.861-0.884
+                V7.542C6.81,7.055,6.425,6.659,5.948,6.659"/>
+            </g>
+            </svg>
+            </i>
+          </div>
+          <textarea ng-model="excerpt.content" ng-focus="disableFixed()"></textarea>
+          <button class="ctrl-btn select-student" ng-click="toggleStudentName()" ng-hide="showRoster">select student...</button>
+          <div class="student-name" >
+          <input ng-class="{selected: attributedStudentId}" class="student-name-input" ng-model="excerpt.author" ng-show="showRoster" placeholder="Add/select student" disabled="disabled" />
+            <div class="triangle" ng-show="showRoster"></div>
+            <div class="triangle inner-triangle" ng-show="showRoster"></div>
+          </div>
+          <section class="student-roster-container" ng-show="showRoster">
+           <button class="anonymous-author-btn" ng-click="selectedStudent('anonymous')">
+                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   width="19.025px" height="19.965px" viewBox="0 0 19.025 19.965" style="enable-background:new 0 0 19.025 19.965;"
+   xml:space="preserve">
+                <g class="anonymous-author-svg">
+                  <path d="M18.077,14.039c0.521-0.15,0.949,0.174,0.949,0.723v4.205c0,0.549-0.445,0.998-0.988,0.998H0.987
+                    C0.444,19.965,0,19.516,0,18.967v-4.208c0-0.549,0.426-0.872,0.947-0.717l7.394,2.19c0.521,0.153,1.375,0.16,1.898,0.012
+                    L18.077,14.039z"/>
+                  <path d="M3.1,7.786C3.835,5.188,4.106-0.039,5.303,0C6.5,0.039,8.663,2.717,9.329,2.717c0.667,0,3.637-1.638,4.382-1.579
+                    c0.746,0.059,1.823,4.91,2.389,6.454c0.057,0.153,0.133,0.202,0.291,0.197c0.458-0.01,0.916-0.005,1.374-0.002
+                    c0.089,0,0.183,0.007,0.27,0.032c0.2,0.06,0.307,0.208,0.299,0.414c-0.01,0.216-0.133,0.362-0.347,0.401
+                    c-0.107,0.02-0.216,0.014-0.324,0.014c-5.436,0-10.871,0-16.305,0c-0.101,0-0.201,0.003-0.299-0.009
+                    c-0.218-0.026-0.377-0.193-0.377-0.4c0-0.229,0.11-0.384,0.339-0.432c0.081-0.017,0.166-0.02,0.249-0.02
+                    C1.869,7.786,2.466,7.786,3.1,7.786z"/>
+                  <path d="M6.125,11.345c0.665,0,1.329-0.002,1.994,0c0.411,0.001,0.567,0.188,0.519,0.606c-0.084,0.701-0.297,1.372-1.307,1.363
+                    c-1.01-0.008-3.624-1.174-3.702-1.41c-0.097-0.299,0.106-0.555,0.45-0.559C4.761,11.341,5.443,11.345,6.125,11.345z"/>
+                  <path d="M12.655,11.345c0.667,0,1.331-0.002,1.996,0c0.411,0.001,0.567,0.188,0.518,0.606c-0.086,0.701-0.297,1.372-1.306,1.363
+                    c-1.008-0.008-3.624-1.174-3.703-1.41c-0.098-0.299,0.107-0.555,0.452-0.559C11.293,11.341,11.975,11.345,12.655,11.345z"/>
+                </g>
+                </svg> Make Anonymous
+                </button>
+            <header class="student-roster-header">
+              <span>Current Roster</span>
+            </header>
+            <ul class="student-roster">
+              <li ng-repeat="student in currentRoster" ng-class="{active:student.key === attributedStudentId}" ng-click="selectedStudent(student)">
+                <span class="student-full-name">{{student.firstName}} {{student.lastName}}</span>
+              </li>
+            </ul>
+          </section>
+            <div class="tag-editor">
+              <p class="tag-editor-title">Tags skills</p>
+                <ul class="tag-select">
+                <li ng-repeat="item in excerpt.skills">
+                  <span class="tag-label" ng-click="toggleTag(item)" ng-class="{'active': item.checked}">{{item.value}}
+                    <i ng-class="{'delete-tag' : !item.predefined}" ng-if="item.predefined == false" ng-click="deleteTag(excerpt.skills, $index)">
+                      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   width="9.856px" height="10px" viewBox="0 0 9.856 10" style="enable-background:new 0 0 9.856 10;" xml:space="preserve">
+                    <path class="delete-prefined-svg" d="M9.131,0C8.927,0,8.725,0.076,8.581,0.224L4.927,4.012L1.274,0.224C1.133,0.076,0.93,0,0.726,0
+                      C0.559,0,0.39,0.05,0.253,0.153c-0.304,0.23-0.339,0.635-0.08,0.905L3.974,5l-3.8,3.94c-0.26,0.271-0.225,0.675,0.08,0.905
+                      C0.39,9.949,0.556,10,0.725,10c0.203,0,0.407-0.077,0.549-0.225l3.654-3.788l3.653,3.788C8.725,9.923,8.927,10,9.131,10
+                      c0.167,0,0.335-0.05,0.472-0.154c0.303-0.23,0.339-0.635,0.079-0.905L5.88,4.999l3.8-3.942c0.259-0.269,0.225-0.674-0.08-0.904
+                      C9.465,0.05,9.298,0,9.131,0"/>
+                    </svg>
+                    </i>
+                  </span>
+                </li>
+              </ul>
+              <input type="text" ng-model="rightColumn.newTag.value" placeholder="Add new skill..." ng-focus="disableFixed()"/>
+              <button class="ctrl-btn add-tag" ng-click="rightColumn.addTag(excerpt)" ng-disabled="!rightColumn.newTag.value">Add</button>
+            </div>
+            <button class="ctrl-btn cancel-excerpt" ng-click="rightColumn.cancelEdit(excerpt); enableFixed()" toggle-draggable="false">Cancel</button>
+            <button class="ctrl-btn save-excerpt" ng-click="rightColumn.saveEdit(excerpt); enableFixed()" toggle-draggable="false" ng-disabled="!(excerpt.content)">Save Excerpt</button>
+          </section>
+        <section class="excerpt-display-mode">
+          <header>
+            <span class="excerpt-student-name"  ng-if="excerpt.author != 'anonymous '">{{excerpt.author}}</span>
+            <span class="excerpt-student-name-anonymous"  ng-if="excerpt.author == 'anonymous '">anonymous</span>
+            <div class='excerpt-mode-icon-container'>
+                <svg class="drag-handle" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   width="22.797px" height="22.985px" viewBox="0 0 22.797 22.985" style="enable-background:new 0 0 22.797 22.985;"
+   xml:space="preserve">
+              <path class="drag-handle-svg" d="M11.398,0c-0.267,0-0.533,0.102-0.736,0.307L7.719,3.274c-0.406,0.41-0.407,1.075,0,1.486
+                c0.203,0.205,0.469,0.307,0.736,0.307c0.266,0,0.534-0.103,0.737-0.308l1.12-1.128L10.31,7.139V7.14v0.477v0.161v2.616l-2.595-0.001
+                h-0.16H7.083H7.082l-3.479,0.001l1.118-1.127c0.406-0.41,0.408-1.076,0-1.485c-0.203-0.205-0.47-0.308-0.736-0.308
+                c-0.266,0-0.534,0.103-0.737,0.308l-2.942,2.966c-0.408,0.411-0.407,1.076,0,1.487l2.943,2.966c0.203,0.205,0.469,0.308,0.735,0.308
+                c0.267,0,0.534-0.104,0.737-0.309c0.406-0.409,0.406-1.073,0-1.484L3.603,12.59l3.952-0.001h2.755l0.001,6.764l-1.12-1.127
+                c-0.203-0.205-0.471-0.308-0.737-0.308c-0.267,0-0.533,0.102-0.736,0.307c-0.407,0.41-0.406,1.076,0,1.485l2.943,2.967
+                c0.203,0.206,0.469,0.308,0.736,0.308c0.267,0,0.534-0.103,0.737-0.308l2.944-2.968c0.406-0.409,0.406-1.074-0.002-1.484
+                c-0.203-0.205-0.469-0.307-0.735-0.307c-0.267,0-0.533,0.103-0.737,0.307l-1.118,1.128l0-6.764l6.708,0.001l-1.119,1.127
+                c-0.406,0.411-0.406,1.075,0,1.484c0.204,0.205,0.471,0.309,0.738,0.309s0.532-0.103,0.735-0.308l2.943-2.966
+                c0.407-0.411,0.407-1.076,0-1.487L19.55,7.782c-0.203-0.205-0.47-0.308-0.737-0.308c-0.267,0-0.534,0.103-0.737,0.308
+                c-0.407,0.409-0.406,1.075,0,1.485l1.119,1.127h-6.708V7.617l0-3.985l1.118,1.129c0.204,0.205,0.47,0.307,0.737,0.307
+                c0.266,0,0.532-0.103,0.735-0.307c0.408-0.411,0.408-1.075,0.002-1.485l-2.944-2.968C11.932,0.103,11.665,0,11.398,0"/>
+              </svg>
+              <a scroll-top class="edit-btn" ng-click="rightColumn.toggleEdit(excerpt, $event)" toggle-draggable="true">
+                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   width="23.021px" height="23.006px" viewBox="0 0 23.021 23.006" style="enable-background:new 0 0 23.021 23.006;"
+   xml:space="preserve">
+          <path class="edit-btn-svg" d="M2.375,21.012c-0.223,0-0.403-0.183-0.403-0.408V6.297c0-0.23,0.177-0.411,0.403-0.411h7.122h3.877L9.806,9.499
+            C9.709,9.595,9.635,9.71,9.585,9.837l-1.571,4.03c-0.145,0.371-0.057,0.793,0.223,1.074c0.188,0.188,0.439,0.289,0.694,0.289
+            c0.124,0,0.249-0.024,0.369-0.072l3.96-1.614c0.123-0.051,0.235-0.125,0.328-0.22l3.434-3.475v10.754
+            c0,0.226-0.181,0.408-0.403,0.408H9.497H2.375 M10.689,12.443l0.656-1.682l7.011-7.097l0.995,1.005l-7.014,7.101L10.689,12.443
+             M20.12,0c-0.818,0-1.348,0.436-1.491,0.566l-0.97,0.983l-0.002,0.002l-2.313,2.341H9.497H2.375C1.065,3.893,0,4.972,0,6.297v14.306
+            c0,1.324,1.065,2.402,2.375,2.402h7.122h7.123c1.309,0,2.374-1.078,2.374-2.402V7.853l3.332-3.373l0.006-0.009l0.053-0.053
+            c0.104-0.098,0.622-0.631,0.636-1.501c0.008-0.477-0.141-1.204-0.896-1.971C21.354,0.165,20.609,0,20.12,0"/>
+          </svg>
+              </a>
+            </div>
+            <div class="quote-triangle"></div>
+            <div class="quote-inner-triangle"></div>
+          </header>
+            <div class="excerpt-container">{{excerpt.content}}</div>  
+          <div class="saved-excerpt-tag-wrapper"><span class="saved-excerpt-tag" ng-repeat="skill in excerpt.skills | filter:{checked:true}">{{skill.value}}</span></div>
+        </section>
+      </li>
+        <!-- End of saved excerpts Left-->
+    </ul>
+  </div>
+</section>
+</div>

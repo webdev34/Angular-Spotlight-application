@@ -1,0 +1,68 @@
+<div class="section" ng-repeat="userData in userData">
+    <h2 class="spotlight-title" >Spotlight</h2>
+    <span class="class-section-teacher" >Hello {{userData.userName}}</span>
+    <i class="add-session-wrapper" pema-modal="myModal" data-modal-hidden="false" ng-click="resetModalValue();">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        width="81px" height="81px" viewBox="0 0 81 81" style="enable-background:new 0 0 81 81;" xml:space="preserve">
+            <path class="add-session-svg" class="" d="M40.5,0C18.132,0,0,18.132,0,40.5S18.132,81,40.5,81C62.868,81,81,62.868,81,40.5S62.868,0,40.5,0z M59.232,44.043H44.043
+            v15.188c0,1.957-1.586,3.545-3.544,3.545c-1.957,0-3.543-1.588-3.543-3.545V44.043H21.769c-1.957,0-3.544-1.586-3.544-3.543
+            c0-1.958,1.587-3.544,3.544-3.544h15.187V21.769c0-1.957,1.586-3.543,3.543-3.543c1.958,0,3.544,1.587,3.544,3.543v15.188h15.189
+            c1.957,0,3.543,1.586,3.543,3.544C62.775,42.457,61.189,44.043,59.232,44.043z"/>
+        </svg>
+    </i>
+    <div class="clearfix"></div> 
+    <hr class="sections-hr"/>
+    <div class="class-section-wrapper" >
+    <section class="wall-wrapper" ng-hide="noSessions"  >
+        <div class="wall-content-wrapper" ng-click="goToWall(session.sectionName, session.sessionId);"  ng-repeat="session in userData.sessions.slice().reverse()" scroll-top>
+                <div class="wall-section-name-wrapper"><span class="wall-section-name">{{session.sectionName}}</span></div>
+                    <div class="wall-section-content">
+                        <h3 class="wall-name">{{session.wallName}}</h3> 
+                        <span  class="session-date" >{{session.date | date : longDate}}</span>
+                    </div>
+                   <div class="wall-section-footer">
+                       <div>
+                            <span class="excerpt-talley">{{session.excerpts.left.length + session.excerpts.right.length }} Posts</span>
+                       </div>
+                       <div class="wall-content-button-wrapper" >
+                            <i class="delete-session-btn" ng-click="deleteSession(session.sectionName, session.sessionId, session.wallName); $event.stopPropagation()">
+                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                width="19.031px" height="23.98px" viewBox="0 0 19.031 23.98" style="enable-background:new 0 0 19.031 23.98;"
+                                xml:space="preserve">
+                                    <g class="delete-session-svg">
+                                        <path d="M3.323,22.213V5.231h12.12v16.981H3.323 M7.634,3.446V1.767h3.497v1.679H7.634 M11.992,0H6.773
+                                        C6.297,0,5.912,0.396,5.912,0.884v2.581H2.461h-1.6C0.385,3.464,0,3.859,0,4.348c0,0.486,0.385,0.884,0.861,0.884H1.6v17.865
+                                        c0,0.488,0.385,0.884,0.861,0.884h13.844c0.477,0,0.86-0.396,0.86-0.884V5.231h1.006c0.476,0,0.86-0.396,0.86-0.884
+                                        c0-0.488-0.385-0.884-0.86-0.884h-1.866h-3.451v-2.58C12.854,0.396,12.468,0,11.992,0"/>
+                                        <path d="M9.516,6.659c-0.476,0-0.861,0.396-0.861,0.884v12.026c0,0.487,0.385,0.884,0.861,0.884c0.475,0,0.861-0.396,0.861-0.884
+                                        V7.542C10.377,7.055,9.991,6.659,9.516,6.659"/>
+                                        <path d="M12.816,6.659c-0.477,0-0.862,0.396-0.862,0.884v12.026c0,0.487,0.386,0.884,0.862,0.884c0.476,0,0.86-0.396,0.86-0.884
+                                        V7.542C13.677,7.055,13.292,6.659,12.816,6.659"/>
+                                        <path d="M5.948,6.659c-0.475,0-0.861,0.396-0.861,0.884v12.026c0,0.487,0.387,0.884,0.861,0.884c0.477,0,0.861-0.396,0.861-0.884
+                                        V7.542C6.81,7.055,6.425,6.659,5.948,6.659"/>
+                                    </g>
+                            </i>
+                            <i class="edit-session-btn"  ng-click="editSession(session.sectionName, session.sessionId); $event.stopPropagation()" scroll-top>
+                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                width="23.021px" height="23.006px" viewBox="0 0 23.021 23.006" style="enable-background:new 0 0 23.021 23.006;"
+                                xml:space="preserve">
+                                    <path class="edit-session-svg" d="M2.375,21.012c-0.223,0-0.403-0.183-0.403-0.408V6.297c0-0.23,0.177-0.411,0.403-0.411h7.122h3.877L9.806,9.499
+                                    C9.709,9.595,9.635,9.71,9.585,9.837l-1.571,4.03c-0.145,0.371-0.057,0.793,0.223,1.074c0.188,0.188,0.439,0.289,0.694,0.289
+                                    c0.124,0,0.249-0.024,0.369-0.072l3.96-1.614c0.123-0.051,0.235-0.125,0.328-0.22l3.434-3.475v10.754
+                                    c0,0.226-0.181,0.408-0.403,0.408H9.497H2.375 M10.689,12.443l0.656-1.682l7.011-7.097l0.995,1.005l-7.014,7.101L10.689,12.443
+                                    M20.12,0c-0.818,0-1.348,0.436-1.491,0.566l-0.97,0.983l-0.002,0.002l-2.313,2.341H9.497H2.375C1.065,3.893,0,4.972,0,6.297v14.306
+                                    c0,1.324,1.065,2.402,2.375,2.402h7.122h7.123c1.309,0,2.374-1.078,2.374-2.402V7.853l3.332-3.373l0.006-0.009l0.053-0.053
+                                    c0.104-0.098,0.622-0.631,0.636-1.501c0.008-0.477-0.141-1.204-0.896-1.971C21.354,0.165,20.609,0,20.12,0"/>
+                                </svg>
+                            </i>
+                      </div>
+                </div>
+        <div class="clearfix"></div>
+    </section>
+    <section class="wall-wrapper" ng-show="noSessions"  >
+    <div class="initial-wall-state-wrapper"> 
+    <div class="initial-wall-state-img"></div>
+    </div>
+    </section>
+    <div class="clearfix"></div>
+</div>

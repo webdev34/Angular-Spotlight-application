@@ -1,0 +1,775 @@
+@import "../bower_components/font-awesome/scss/font-awesome.scss";
+
+$lighter-gray: #f2f2f2;
+$light-gray: #cccccc;
+$dark-gray: #999999;
+$darker-gray: #808080;
+$white: #ffffff;
+$teal: #0071bc;
+$orange: #ec7021;
+$green: #88a80d;
+
+$navbar-bg: rgba(38,38,38, 1);
+$navbar-font-color: #eaeaea;
+$add-new-box: rgba(38,38,38, 0.5);
+$editbox-bg: #f9f9f9;
+$excerpt-bg: #f9f9f9;
+$excerpt-title-bg: #e5e5e5;
+$excerpt-font-color: #494c51;
+$excerpt-border: #cccccc;
+$tag-font-color: #75777b;
+$tag-border: #babec4;
+$nav-btn: #f07221;
+$nav-bg: #262626;
+$input-bg: #ffffff;
+$editbox-border: #dddddd;
+$tag-bg: #cccccc;
+$editbox-font: #a4a5a8;
+$wall-bg: #11bbe4;
+$roster-bg: #1fb28c;
+$roster-highlight: #0f8f71;
+$roster-border: #18997a;
+$roster-font-color: #def4ee;
+$roster-header-font: #235e4f;
+
+.glyphicon.glyphicon-trash,
+.glyphicon.glyphicon-th-large,
+.glyphicon.glyphicon-book{
+    font-size: 21px;
+    margin-top: 5px;
+}
+
+.glyphicon.glyphicon-trash:hover,
+.glyphicon.glyphicon-th-large:hover,
+.glyphicon.glyphicon-book:hover
+.glyphicon.glyphicon-edit:hover{
+    cursor:pointer;
+}
+
+.student-excerpt {
+    @extend .container-fluid;
+    // position: relative;
+    padding: 0;
+    margin-top: 50px;
+    height: 100%;
+    background-size: cover;
+}
+
+.saved-excerpt-container {
+    @extend .clearfix;
+    margin-top: 10px;
+    background-size: cover;
+}
+//-----------------------new excerpt-----------------------//
+.editbox,
+.excerpt-edit-mode {
+    position: relative;
+    display: block;
+    width: 100%;
+    border: 2px solid $editbox-border;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+    padding: 20px;
+    color: $excerpt-font-color;
+    background-color: $editbox-bg;
+    box-shadow: 0 5px 17px -3px rgba(0,0,0, 0.3);
+    font-family: Benton Sans Book;
+    .tag-editor {
+        @extend .clearfix;
+        margin: 15px 0;
+        .tag-editor-title {
+            color: #989898;
+            font-size: 18px;
+        }
+        input {
+            border: 1px solid $editbox-border;
+            margin: 0;
+            padding: 1rem;
+            width: 80%;
+            background-color: #ffffff !important;
+            background:image-url("../images/skill_tag.svg");
+            background-repeat: no-repeat;
+            background-size: 25px;
+            background-position: 8px;
+            text-indent: 35px;
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    .tags-collection,
+    .skill-tags {
+        border: 0;
+        display: inline;
+        margin: 0;
+        padding: 5px 0;
+    }
+    .tags-collection-item,
+    .skill-tag {
+        background-color: $tag-bg;
+        border: 0;
+        color: white;
+        display: inline-block;
+        font-size: 1.3rem;
+        line-height: 1.50rem;
+        margin: 4px;
+        padding: 5px 6px 3px;
+    }
+    textarea {
+        width: 100%;
+        height: 120px;
+        padding: 10px;
+        border: 1px solid $editbox-border;
+        -webkit-appearance: none;
+        resize: none;
+        color: $excerpt-font-color;
+        font-family: Tisa Pro;
+        font-size: 18px;
+    }
+    textarea::-webkit-input-placeholder{ 
+        font-family: Benton Sans Book;
+    }
+    textarea::-moz-placeholder{ 
+        font-family: Benton Sans Book;
+    }
+    textarea:-ms-input-placeholder { 
+        font-family: Benton Sans Book;
+    }
+    .student-name {
+        position: relative;
+        width: 100%;
+        height: auto;
+        font-weight: lighter; 
+        input.student-name-input{
+            padding: 15px 7px;
+            background: #ffffff;
+            text-transform: capitalize;
+            padding: .7rem .9rem;
+            font-size: 1.3em;
+            color: #000;
+            border: 1px solid $dark-gray;
+            background: #fff;
+            font-family: Benton Sans Book;
+            margin-top: 10px;
+            width: 100%;
+        }
+        input.student-name-input.selected{
+            border: 1px solid #1fb28c;
+            background: #daf7ed;
+            font-family: Benton Sans Medium;
+            -webkit-border-radius: 6px;
+            -moz-border-radius: 6px;
+            border-radius: 6px;
+
+        }
+        input:-webkit-input-placeholder{ 
+
+            font-weight: lighter;
+            color: $light-gray;
+        }
+        input::-moz-placeholder{ 
+            font-family: Benton Sans Book;
+            font-weight: lighter;
+            color: $light-gray;
+        }
+        input:-ms-input-placeholder { 
+            font-family: Benton Sans Book;
+            font-weight: lighter;
+            color: $light-gray;
+        }
+    }
+}
+.excerpt-edit-mode {
+    margin: 0;
+    padding-top: 5px; 
+    display: none;
+}
+.edit-mode {
+    .editbox {
+        position: absolute;
+        width: 49%;
+        height: 90%;
+        z-index: 5;
+        textarea {
+            max-height: 45%;
+            font-family: Tisa Pro;
+        }
+    }
+    .excerpt-edit-mode {
+        textarea {
+            max-height: 45%;
+        }
+    }
+
+}
+//---------------------saved exercepts----------------//
+li.excerpt {
+    display: inline-block;
+    width: 100%;
+    margin: 2% 0;
+    background: #fff;
+    min-height: 165px;
+    border-radius: 1px;
+    border: 2px solid $excerpt-border;
+    box-shadow: 0 5px 17px -3px rgba(0,0,0, 0.3); 
+    color: $excerpt-font-color;
+
+    .excerpt-mode-icon-container {
+        background: $excerpt-title-bg;
+    }
+    .excerpt-display-mode {
+        header {
+            margin-bottom: 40px;
+            border-bottom: 2px solid #ccc;
+            position: relative;
+            .quote-triangle{
+                width: 0;
+                z-index: 1;
+                height: 0;
+                border-style: solid;
+                border-width: 20px 0 0 20px;
+                border-color: transparent transparent transparent #ffffff;
+                position: absolute;
+            }
+            .quote-inner-triangle{
+                width: 0;
+                z-index: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 23px 0 0 23px;
+                border-color: transparent transparent transparent #ccc;
+                position: absolute;
+            }
+        }
+    }
+}
+li.edit-mode {
+    position: absolute;
+    display: block;
+    width: 49%;
+    height: auto;
+    top: 60px;
+    margin: 1% 0;
+    background: $white;
+    z-index: 2;
+    .excerpt-edit-mode {
+        display: block;
+        height: 100%;
+        border: 0;
+        .excerpt-mode-icon-container {
+            background: $excerpt-bg;
+        }
+    }
+    .excerpt-display-mode {
+        display: none;
+    }
+}
+li.editing-disallowed {
+    color: gray;
+}
+.excerpt-mode-icon-container {
+    @extend .row;
+    margin: 0 !important;
+    .excerpt-mode-icon {
+        display: block;
+        float: right;
+        left: 12px;
+    }
+    .remove-button {
+        display: block;
+        float: right;
+        position: relative;
+        left: 14px;
+        &:hover{
+            cursor: pointer;
+        }
+        .trash-can-svg{
+            fill: #808080;
+            stroke: #808080;
+        }
+    }
+}
+//--------------------------two columns of excerpts--------------//
+.saved-excerpts.column-1 {
+    width: 49%;
+    float: left;
+    li.excerpt {
+        .quote-triangle{
+            left: 7.8%;
+            top: 78%;
+        }
+        .quote-inner-triangle{
+            left: 7.5%;
+            top: 72%;
+        }
+    }
+}
+.saved-excerpts.column-2 {
+    width: 49%;
+    float: right;
+    li.excerpt {
+        float: right;
+        .quote-triangle{
+            left: 7.9%;
+            top: 77%;
+        }
+        .quote-inner-triangle{
+            left: 7.6%;
+            top: 72%;
+        }
+    }
+}
+.new-excerpt {
+    margin: 2% 0;
+}
+.excerpt-student-name ,
+.excerpt-student-name-anonymous{
+    float: left;
+    margin: 18px 10px 20px;
+    font-size: 26px;
+    font-family: Benton Sans Medium;
+    text-transform: capitalize;
+    width: 65%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.excerpt-student-name-anonymous{
+    visibility: hidden;
+}
+.excerpt-container {
+    min-height: 60px;
+    padding: 0 40px;
+    margin: 20px auto;
+    font-family: Tisa Pro;
+}
+//-----------------------tags---------------------//
+
+.saved-excerpt-tag-wrapper{
+    float:left;
+    margin: 20px;
+}
+.saved-excerpt-tag{
+    float: left;
+    margin: 4px;
+    padding: 5px 6px 3px;
+    font-size: 16px;
+    color: $tag-font-color;
+    border: 1px solid $tag-border;
+    font-family: Benton Sans Medium;
+}
+.add-new-box {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 2% 0;
+    border: 1px solid rgba(172,172,172, 0.3);
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+    padding: 20px;
+    color: $navbar-font-color;
+    box-shadow: 0 5px 17px -3px rgba(0,0,0, 0.3);     
+    background: $add-new-box;
+    text-transform: uppercase;
+    font-family: Benton Sans Light;
+    font-size: 18px;
+}
+.empty-list-holder{
+    min-height: 175px;
+    background: transparent;
+    font-family: Benton Sans Medium;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 3px dotted #fff;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 70px;
+}
+//----------------------save and cancel buttons-------------//
+.ctrl-btn {
+    width: 48%;
+    padding: 1.5rem 0;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px -2px rgba(0,0,0, 0.3);
+    border: 0;
+    text-transform: uppercase;
+    font-size:18px;
+}
+.ctrl-btn.select-student {
+    margin-top: 20px;
+    width: 100%;
+    background: $roster-bg;
+    border: 1px solid #229e80;
+    box-shadow: none;
+    color: white;
+}
+.ctrl-btn.cancel-excerpt {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    margin-right: 2%;
+    background: linear-gradient(to bottom, #e5e5e5 0%,#cecece 100%);
+    color: #545454;
+    font-family: Benton Sans Book;
+}
+.ctrl-btn.save-excerpt {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    float: right;
+    background: #f27207;
+    background: linear-gradient(to bottom, #f37321 0%,#e26c21 100%);
+    color: #fff;
+    font-family: Benton Sans Book;
+    &:disabled {
+        color: #d4d4d4;
+        background: #a5a5a5;
+        background: linear-gradient(to bottom, #aaaaaa 0%,#a5a5a5 100%);
+        cursor: default;
+    }
+}
+.ctrl-btn.add-tag {
+    width: 17%;
+    float: right;
+    padding: 1rem 0;
+    background: linear-gradient(to bottom, #f37321 0%,#e26c21 100%);
+    color: white;
+    font-family: Benton Sans Book;
+    &:disabled {
+        color: #f2f2f2;
+        background: #cbcbcb;
+        background: linear-gradient(to bottom, #cecece 0%,#cbcbcb 100%);
+    }
+}
+//----------------------autocomplete----------------------//
+.autocomplete{
+    width: 100%;
+    position: relative;
+}
+
+.autocomplete input{
+    font-size: 1.2em;
+    width: 100%;
+    padding:0.4em;
+}
+
+.autocomplete ul{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    border: 0;
+}
+
+.autocomplete li{
+    text-align: left;
+    list-style:none;
+    width: 100%;
+    padding:0.4em;
+    background-color: #fff;
+}
+
+.autocomplete li.active{
+    width: 100%;
+    background-color: #4bf;
+}
+
+.autocomplete .highlight {
+    background-color: #E2E2E2;
+}
+
+.autocomplete li.active .highlight {
+    background: #666;
+    color: #fff;
+}
+.skills-autocomplete{
+    width: 100%;
+    margin-right: 10px;
+    box-shadow: none;
+    background: $lighter-gray;
+}
+.autocomplete {
+    width: 75%;
+    float: left;
+    margin: 10px 0;
+}
+.autocomplete ul{
+    background-color: #fff;
+}
+.autocomplete ul li{
+    background-color: #fff;
+    min-height: 10px;
+    padding: 0.4em;
+    margin: 0px;
+}
+.autocomplete ul li.active{
+    background-color: $green;
+}
+//----------------------roster container-----------------//
+.student-roster-container {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: -1px;
+    padding: 2px 10px 40px;
+    background: $roster-bg;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    overflow-y: hidden;
+    z-index: 10;
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    header {
+        padding: 10px 15px;
+        color: #235e4f;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        border-bottom: 1px solid $roster-border;
+        text-transform: uppercase;
+        text-align: center;
+        font-family: Benton Sans Medium;
+    }
+    .anonymous-author-btn{
+        background: #0f8f71;
+        width: 100%;
+        padding: 8px 0px;
+        border: thin solid #ffffff;
+        text-transform: uppercase;
+        color: #fff;
+        margin-top: 10px;
+        font-family: Benton Sans Medium;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px; 
+        svg{
+            margin-right: 10px;
+        }
+        .anonymous-author-svg{
+            fill: #fff;
+            stroke: #fff;
+        }
+    }
+    .student-roster {
+        height: 90%;
+        overflow-y: auto;
+    }
+    .student-roster > li {
+        padding: 10px 15px;
+        border-bottom: 2px solid $roster-border;
+        color: $roster-font-color;
+        font-family: Benton Sans Medium;
+        text-transform: capitalize;
+        &:hover {
+            background: $roster-highlight;
+            color: $white;
+            cursor: pointer;
+        }
+        .student-full-name{
+            display: inline-block;
+            text-overflow: ellipsis;
+            width: 165px;
+            margin-right: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    }
+    .student-roster > li.active {
+        background: $roster-highlight;
+        color: $white;
+    }
+    .day-since {
+        @extend .pull-right;
+    }
+}
+.column-1 {
+    .student-roster-container {
+        display: block;
+        left: 100%;
+        -webkit-box-shadow: 2px 6px 18px -2px rgba(50, 50, 50, 0.5);
+    }
+    .triangle {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 15px 25px 15px 0;
+        border-color: transparent $roster-bg transparent transparent;
+        position: absolute;
+        top: 17px;
+        right: -29px;
+        z-index: 11;
+    }
+    .triangle.inner-triangle{
+        border-color: transparent #ccc transparent transparent;
+        z-index: 10;
+        right: -26px;
+    }
+}
+.column-2{
+    .student-roster-container {
+        display: block;
+        right: 100%;
+        -webkit-box-shadow: -2px 6px 18px -2px rgba(50, 50, 50, 0.5);
+    }
+    .triangle {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 15px 0 15px 25px;
+        border-color: transparent transparent transparent $roster-bg;
+        position: absolute;
+        top: 17px;
+        left: -29px;
+        z-index: 11;
+    }
+    .triangle.inner-triangle{
+        border-color: transparent transparent transparent #ccc;
+        z-index: 10;
+        left: -26px;
+    }
+}
+.edit-btn {
+    @extend .pull-right;
+    display: block;
+    font-weight: lighter;
+    margin: 20px 5px 0px;;
+    text-decoration: none;
+    color: $darker-gray;
+    font-size: 1.3em;
+    &:hover{
+        color: $dark-gray;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .edit-btn-svg{
+        fill: #97989b;
+        stroke: #97989b;
+    }
+}
+.tag-select {
+    @extend .clearfix;
+    margin: 0;
+    .tag-label {
+        color: white;
+        background: $tag-bg;
+        margin: 0 8px 8px 0;
+        float: left;
+        padding: 4px 7px;
+        cursor: pointer;
+        font-family: Benton Sans Book;
+        &.active {
+            background: #515B6D;
+        }
+    }
+    label {
+        padding: 3px 5px;
+        margin: 0;
+    }
+    input[type=checkbox]:checked + label{
+        background: gray;
+    }
+    .delete-prefined-svg{
+        fill: #ffffff;
+        stroke: #ffffff;
+    }
+}
+//-----------------------drag and drop styles--------------------//
+.drag-handle {
+    @extend .pull-right;
+    display: block;
+    margin: 10px;
+    padding: 10px;
+    text-decoration: none;
+    color: $excerpt-font-color;
+    font-size: 1.5em;
+    z-index: 0;
+    .drag-handle-svg{
+        fill: #97989b;
+        stroke: #97989b;
+    }
+    &:hover{
+        color: $excerpt-font-color;
+        text-decoration: none;
+        cursor: move;
+    }
+}
+.handle:hover{
+    cursor: pointer;
+}
+
+.over, .droppable.over {
+  border-color: #ccc;
+  opacity: 0.5;
+}
+
+.saved-excerpts-list li.over{
+    position:relative;
+}
+
+.moving {
+    z-index: 999999;
+}
+
+.hidden-modal.disable{
+    background-color: black;
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    @include opacity(0.2);
+    z-index: 2;
+}
+
+// For ipads
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+    .column-1 li.excerpt .excerpt-display-mode header {
+        .quote-triangle{
+            left: 7.8%;
+        }
+        .quote-inner-triangle{
+
+        }
+    }
+    .column-2 li.excerpt .excerpt-display-mode header {
+        .quote-triangle{
+            left: 8%;
+        }
+        .quote-inner-triangle{
+
+        }
+    }
+}
+
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+    .column-1 li.excerpt .excerpt-display-mode header {
+        .quote-triangle{
+            left: 8%;
+        }
+        .quote-inner-triangle{
+
+        }
+    }
+    .column-2 li.excerpt .excerpt-display-mode header {
+        .quote-triangle{
+            left: 8%;
+        }
+        .quote-inner-triangle{
+
+        }
+    }
+}

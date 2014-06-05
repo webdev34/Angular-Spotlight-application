@@ -1,0 +1,824 @@
+@import 'base';
+
+@font-face
+{
+	font-family: 'American Typewriter';
+	src: url('../fonts/AmericanTypewriterStd-Med.otf') format('opentype');
+}
+
+@font-face
+{
+	font-family: 'American Typewriter';
+	font-weight: bold;
+	src: url('../fonts/AmericanTypewriterStd-Bold.otf') format('opentype');
+}
+
+@font-face
+{
+	font-family: 'Bebas Neue';
+	src: url('../fonts/BebasNeue.otf') format('opentype');
+}
+
+body
+{
+	background-color: #AFBEB8;
+}
+
+// Foundation applies a box shadow that severely affects
+// performance on mobile when transitioning the element dimensions.
+textarea {
+	box-shadow: none;
+}
+
+// TODO: Rename to imageScaleFactor.
+$scaleFactor : 0.5;
+
+@mixin backgroundAndScale($imgUrl, $width, $height)
+{
+	$width: $width * $scaleFactor;
+	$height: $height * $scaleFactor;
+
+	width: $width;
+	height: $height;
+	background-image: url($imgUrl);
+	background-size: $width $height;
+}
+
+$editorAnimationDuration: 200ms;
+
+$screenWidth : 1024px;
+$screenHeight : 672px;
+
+$modalground : 10000;
+$foreground : 1000;
+$midground : 100;
+$background : 10;
+$waybackground : 1;
+
+$imageLogoScreen : '../images/logo.png';
+$imageLogoScreenWidth : 864px;
+$imageLogoScreenHeight : 217px;
+
+$imageStartScreen : '../images/background_startscreen.png';
+$imageStartScreenWidth : 1345px;
+$imageStartScreenHeight : 1243px;
+
+$imageProgressScreen : '../images/background_progress.png';
+$imageProgressScreenWidth : 1168px;
+$imageProgressScreenHeight : 366px;
+
+$imageCaseOneScreen : '../images/background_case01.png';
+$imageCaseOneScreenWidth : 817px;
+$imageCaseOneScreenHeight : 955px;
+
+$imageCaseTwoScreen : '../images/background_casebook.png';
+$imageCaseTwoScreenWidth : 1883px;
+$imageCaseTwoScreenHeight : 1289px;
+
+$imageMapDecal : '../images/background_map.png';
+$imageMapDecalWidth : 1117px;
+$imageMapDecalHeight : 269px;
+
+$imageSquareScreen : '../images/background_saxecoburg.png';
+$imageSquareScreenWidth : 736px;
+$imageSquareScreenHeight : 1011px;
+
+
+.authorization
+{
+	position: absolute;
+	right: 1%;
+	bottom: 0%;
+	z-index: $foreground;
+}
+
+.container
+{
+	background: url('../images/background_main.jpg');
+	background-size: $screenWidth;
+	position: relative;
+	width: $screenWidth;
+	height: $screenHeight;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.modal
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: $modalground;
+	background-color: rgba(0, 0, 0, .5);
+
+}
+
+.modal.white
+{
+	background-color: #FFF;
+
+	-webkit-transition: top 500ms;
+	-webkit-transition-delay: 500ms;
+}
+
+.logo-screen
+{
+
+	$width: floor($imageLogoScreenWidth * $scaleFactor);
+	$height: floor($imageLogoScreenHeight * $scaleFactor);
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	width: $width;
+	height: $height;
+	margin-top: -$height/2;
+	margin-left: -$width/2;
+
+	background: url($imageLogoScreen);
+	background-size: $width $height;
+
+	.load-bar-bg
+	{
+		position: absolute;
+		background-color: #DDD;
+
+		width: $width * 2;
+		left: floor($width * -0.5);
+		height: 4px;
+		top : $height + 60;
+
+		.load-bar-fg
+		{
+			position: absolute;
+			background-color: #f47421;
+			-webkit-transition: width 200ms;
+			-webkit-transition-timing-function: linear;
+
+			left: 0px;
+			height: 4px;
+			top : 0px;
+		}
+	}
+}
+
+.start-screen-inner
+{
+	$width: floor($imageStartScreenWidth * $scaleFactor);
+	$height: floor($imageStartScreenHeight * $scaleFactor);
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	width: $width;
+	height: $height;
+	margin-top: -$height/2;
+	margin-left: -$width/2;
+
+	background: url($imageStartScreen);
+	background-size: $width $height;
+
+	.intro-text
+	{
+		position: relative;
+		top: 280px;
+		width: 380px;
+		max-height: 145px;
+		margin: 0 auto;
+		overflow: hidden;
+		text-align: center;
+		padding: 5px;
+	}
+
+	.start-button
+	{
+		$width: 143px;
+		$height: 35px;
+
+		position: relative;
+		top: 440px;
+		width: $width;
+		height: $height;
+		margin: 0 auto;
+		text-align: center;
+		cursor: pointer;
+
+		background: url('../images/link_start.png');
+		background-size: $width $height;
+
+		&:hover
+		{
+			opacity: .85;
+		}
+	}
+}
+
+.progress-screen
+{
+	$width: floor($imageProgressScreenWidth * $scaleFactor);
+	$height: floor($imageProgressScreenHeight * $scaleFactor);
+
+	position: absolute;
+	z-index: $foreground + 1;
+	-webkit-transform: rotate(2deg);
+
+	width: $width;
+	height: $height;
+
+	background: url($imageProgressScreen);
+	background-size: $width $height;
+
+	.tunnel-animation
+	{
+		position: absolute;
+		top: 119px;
+		left: 81px;
+
+		path
+		{
+			fill: none;
+			stroke: black;
+			stroke-width: 15;
+			-webkit-transition: stroke-dashoffset 1s;
+		}
+	}
+
+	.sherlock-animation
+	{
+		position: absolute;
+		top: 53px;
+		left: 300px;
+		width: 270px;
+
+		.sherlock
+		{
+			position: absolute;
+			$width: 138px * $scaleFactor;
+			$height: 179px * $scaleFactor;
+
+			height: $height;
+			width: $width;
+			background-image: url('../images/overlay_sherlock.png');
+			background-size: $width $height;
+
+			-webkit-transition: right 1s ease-in-out;
+		}
+	}
+}
+
+.case-one-screen
+{
+	$width: floor($imageCaseOneScreenWidth * $scaleFactor);
+	$height: floor($imageCaseOneScreenHeight * $scaleFactor);
+	$padding: 25px;
+
+	z-index: $midground;
+
+	position: absolute;
+	width: $width;
+	height: $height;
+	padding: $padding;
+
+	background: url($imageCaseOneScreen);
+	background-size: $width $height;
+
+	-webkit-transform: rotate(-2deg);
+
+	h1, h2
+	{
+		text-transform: uppercase;
+		font-family: 'Bebas Neue';
+		line-height: 1em;
+	}
+
+	h1
+	{
+		font-size: 2em;
+		margin-bottom: .3em;
+	}
+
+	h2
+	{
+		font-size: 1.5em;
+	}
+
+	.excerpt
+	{
+		@include clearfix();
+
+		$margin: 20px;
+		$number_width: 40px;
+
+		position: relative;
+		font-family: 'American Typewriter';
+		font-size: 12px;
+		margin: $margin/2 0;
+		padding: $margin/2 0;
+
+		background: url('../images/clue-look-button.png') right center no-repeat;
+		background-size: 14px 14px;
+
+		border-bottom: 2px dotted black;
+
+		cursor: pointer;
+
+		.number
+		{
+			float: left;
+			width: $number_width;
+			font-weight: bold;
+		}
+
+		.text
+		{
+			float: left;
+			width: $width - $number_width - $margin*2 - $padding*2;
+		}
+	}
+
+	.excerpt:last-child
+	{
+		border-bottom: none;
+	}
+}
+
+$page_2_position: 56.5%;
+
+.casebook
+{
+	$width: floor($imageCaseTwoScreenWidth * $scaleFactor);
+	$height: floor($imageCaseTwoScreenHeight * $scaleFactor);
+	$font_family: 'Monotype Corsiva';
+
+	position: absolute;
+	z-index: $background;
+
+	width: $width;
+	height: $height;
+
+	background: url($imageCaseTwoScreen);
+	background-size: $width $height;
+
+	font-family: $font_family;
+
+	h1, h2
+	{
+		line-height: 1em;
+		font-family: $font_family;
+	}
+
+	h1
+	{
+		font-size: 2em;
+	}
+
+	h2
+	{
+		font-size: 1.5em;
+	}
+
+	.page-1
+	{
+		position: absolute;
+		width: 35%;
+		height: 84%;
+		top: 5%;
+		left: 12.5%;
+	}
+
+	.page-2
+	{
+		position: absolute;
+		top: 5%;
+		left: $page_2_position;
+		width: 31%;
+		height: 84%;
+
+		h1,
+		h2
+		{
+			visibility: hidden;
+		}
+	}
+
+	.response
+	{
+		cursor: pointer;
+		margin: 1.5em 0;
+		max-height: 70px;
+		overflow: hidden;
+	}
+
+}
+
+.done-button
+{
+	opacity: 0;
+	// TODO: Add image.
+	background-color: red;
+	color: white;
+	font-weight: bold;
+	border-radius: 10px;
+	display: inline-block;
+	padding: 25px 30px;
+	position: absolute;
+	left: 400px;
+	top : 550px;
+	z-index: $modalground - 1;
+	pointer-events: none;
+}
+.done-button.visible
+{
+	opacity: 1;
+	cursor: pointer;
+	pointer-events: auto;
+	-webkit-animation: drop 350ms ease-out 1 forwards 
+}
+
+.final-statement
+{
+	position: absolute;
+	padding: 25px;
+	z-index: $foreground;
+
+	@include backgroundAndScale('../images/background_endcard.png', 584px, 289px);
+
+
+	.prompt
+	{
+		font-family: 'American Typewriter';
+		font-size: 12px;
+		line-height: 1.2em;
+		text-align: center;
+	}
+
+	.write-statement-button
+	{
+		margin-left: auto;
+		margin-right: auto;
+		@include backgroundAndScale('../images/link_writestatement.png', 386px, 70px);
+	}
+
+	.response
+	{
+		height: 100%;
+		cursor: pointer;
+	}
+
+	&.complete
+	{
+		background: none;
+		padding: 0;
+	}
+}
+
+.saxon-screen
+{
+	$width: floor($imageSquareScreenWidth * $scaleFactor);
+	$height: floor($imageSquareScreenHeight * $scaleFactor);
+
+	position: absolute;
+	z-index: $foreground;
+	-webkit-transform: rotate(-2deg);
+
+	width: $width;
+	height: $height;
+
+	background: url($imageSquareScreen);
+	background-size: $width $height;
+
+	-webkit-transition-property: left, top;
+	-webkit-transition-timing-function: ease-out;
+	-webkit-transition-duration: 250ms;
+
+
+	.saxon-excerpts
+	{
+		position: relative;
+		top: 250px;
+		margin: 0 auto;
+		width: 60%;
+
+		.excerpt
+		{
+			@include clearfix();
+			margin-bottom: 1em;
+
+			.number
+			{
+				float: left;
+				width: 5%;
+				margin-right: 5%;
+			}
+
+			.text
+			{
+				float: left;
+				width: 90%;
+			}
+		}
+	}
+}
+
+
+@-webkit-keyframes drop
+{
+	0%
+	{
+		-webkit-transform: scale(3) rotate(30deg);
+	}
+	100%
+	{
+		-webkit-transform: scale(1) rotate(0deg);
+	}
+}
+
+.map-decal
+{
+	position: absolute;
+	top: -11px;
+	left: -2px;
+	z-index: $waybackground;
+	-webkit-transform: rotate(2deg);
+
+	@include backgroundAndScale($imageMapDecal, $imageMapDecalWidth, $imageMapDecalHeight);
+}
+
+
+
+
+
+.go-state-first-question-list
+{
+	@include backgroundAndScale('../images/link_saxecoburg.png', 562px, 82px);
+
+	position: absolute;
+	top: 420px;
+	left: 205px;
+	z-index: $foreground;
+
+	opacity: 0;
+	-webkit-transition: opacity 200ms ease-out $editorAnimationDuration;
+
+	cursor: pointer;
+}
+
+.go-state-first-question-list.visible
+{
+	opacity: 1;
+	-webkit-animation: drop 350ms ease-out 1 forwards $editorAnimationDuration;
+}
+
+.go-state-second-question-list
+{
+	@include backgroundAndScale('../images/link_saxecoburg.png', 562px, 82px);
+
+	position: absolute;
+	top: 20px;
+	left: 205px;
+	z-index: $background;
+	pointer-events: none;
+
+	opacity: 0;
+	-webkit-transition: opacity 200ms ease-out $editorAnimationDuration;
+
+	cursor: pointer;
+}
+
+.go-state-second-question-list.visible
+{
+	opacity: 1;
+	-webkit-animation: drop 350ms ease-out 1 forwards $editorAnimationDuration;
+	pointer-events: auto;
+}
+
+.go-state-summary-question
+{
+	@include backgroundAndScale('../images/link_saxecoburg.png', 562px, 82px);
+
+	position: absolute;
+	top: 220px;
+	left: 205px;
+	z-index: $foreground;
+
+	opacity: 0;
+	-webkit-transition: opacity 200ms ease-out $editorAnimationDuration;
+
+	cursor: pointer;
+}
+
+.go-state-summary-question.visible
+{
+	opacity: 1;
+	-webkit-animation: drop 350ms ease-out 1 forwards $editorAnimationDuration;
+}
+
+
+.editor-screen
+{
+	width: 100%;
+	height: 100%;
+	background: #E0E0E0;
+
+	.excerpt,
+	.response
+	{
+		float: left;
+		height: 100%;
+		width: 50%;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// State transitions.
+.container
+{
+
+
+	$casebookTransitionDuration: 350ms;
+
+	// Defaults.
+
+	.start-screen
+	{
+		opacity: 0;
+		-webkit-transition: opacity 200ms ease-out;
+		pointer-events: none;
+	}
+
+	.casebook
+	{
+		-webkit-transition: left $casebookTransitionDuration ease-out;
+		top: 28px;
+		left: 470px;
+	}
+
+	.case-one-screen
+	{
+		top: 70px;
+		left: -365px;
+		-webkit-transition: left 500ms;
+	}
+
+	.saxon-screen
+	{
+		top: $screenHeight;
+		top: 600px;
+		left: 110px;
+	}
+
+	.progress-screen
+	{
+		top: 514px;
+		left: 3px;
+	}
+
+	.modal-editor
+	{
+		top: 100%;
+		-webkit-transition: top $editorAnimationDuration ease-out;
+	}
+
+	.modal-editor.visible
+	{
+		top: 0%;
+	}
+
+	.final-statement
+	{
+		left: 1100px;
+		top: 400px;
+		-webkit-transition: left 500ms;
+	}
+
+
+
+
+	// State specific
+
+	&.state-initial-screen
+	{
+		.start-screen
+		{
+			opacity: 1;
+			pointer-events: auto;
+		}
+
+	}
+
+	&.state-first-question-list
+	{
+		.saxon-screen.visible
+		{
+			opacity: 1;
+			top: 450px;
+			left: -40px;
+		}
+
+		.case-one-screen.visible
+		{
+			top: 70px;
+			left: 35px;
+			-webkit-transition: left 500ms;
+		}
+
+		.final-statement.visible
+		{
+			left: 980px;
+		}
+	}
+
+	&.state-second-question-list
+	{
+		.saxon-screen.visible
+		{
+			opacity: 1;
+			top: 90px;
+			left: -40px;
+		}
+
+		.casebook
+		{
+			left: 180px;
+		}
+
+		.case-one-screen.visible
+		{
+			left: -132px;
+		}
+
+		.final-statement.visible
+		{
+			left: 700px;
+		}
+
+	}
+
+	&.state-summary-question
+	{
+
+		.final-statement.visible
+		{
+			left: 650px;
+		}
+
+		.casebook
+		{
+			left: 100px;
+		}
+
+		.case-one-screen.visible
+		{
+			left: -302px;
+		}
+
+		.saxon-screen.visible
+		{
+			opacity: 1;
+			top: 90px;
+			left: -240px;
+		}
+	}
+
+	&.state-reward-screen
+	{
+		
+	}
+}

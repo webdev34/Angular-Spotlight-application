@@ -1,0 +1,456 @@
+/* Nav Bar CSS */
+.navbar{
+	background-color:#666;
+	.container{
+		max-width: 100%;
+		padding: 0px;
+		margin: 0px;
+		width:100%;
+		position:relative;
+		.wrapper-left{
+			float: left;
+			width: 20%;
+			height: 55px;
+			button.navbar-toggle{
+		    float: left; 
+		    border: 0px;
+		    left: 10px;
+	    }
+	    .comparison-reset-button,
+	    .go-to-section-button,
+	    .go-to-wall-btn{
+				display:none;
+				background: transparent;
+				border: 0px;
+				position: absolute;
+				top: 33%;
+				left: 1%;
+				color: #808080;
+				font-size: 15px;
+				text-transform: uppercase;
+				font-weight: lighter;
+				font-family: Benton Sans Book;
+				font-weight: lighter;
+			}
+			.comparison-reset-button{
+				
+			}
+			.go-to-wall-btn,
+			.comparison-reset-button{
+				.back-to-wall{
+					fill: #808080;
+					stroke: #808080;
+				}
+				.go-to-wall-span{
+					margin-left: 5px;
+					top: -3px;
+					position: relative;
+					color: #808080;
+					display: inline-block;
+				}
+			}
+	  }
+		.navbar-header{
+			margin-left: auto;
+			margin-right: auto;
+			float: left;
+			text-align: center;
+			width: 60%;
+			display: inline-block;
+			font-family: amplify;
+			position: relative;
+			height: auto;
+			font-size: 21px;
+			.navbar-brand{
+				color: #000;
+				width: 100%;
+				height: auto;
+				font-size: 21px;
+				.build-wall-extended-title,
+				.wall-page-title,
+				.edit-btn-modal-display-wrapper{
+		 			display: none;
+		 			text-transform: capitalize;
+		    }
+		    .current-page-title{
+		    	display: inline-block;
+		    	margin-right: 5px;
+		    }
+		    .section-name{
+		    	text-transform: capitalize;
+		    }
+		    .navbar-brand-comparison{
+					color: #fff;
+					width: 100%;
+					text-transform: uppercase;
+					margin-top: 16px;
+				}
+		  }
+		}
+
+    .wrapper-right{
+			float: right;
+			width: 20%;
+			.navbar-view{
+				margin-right:10px;
+				background-color: #fff;
+				border: none;
+				padding: 4px 15px;
+				color: #666;
+				top: 11px;
+				right: 0px;
+			}
+			.navbar-view.save-session-wall-btn,
+	    .navbar-view.compareDoneBut
+		  {
+				color: #fff;
+				float: right;
+				margin-right: 10px;
+				position: absolute;
+				top: 29%;
+				display:none;
+				font-family: Benton Sans Medium;
+			}
+			.navbar-view.compareDoneBut
+		  {
+				background-color: #999;
+			}
+			.save-session-wall-btn,
+			.log-out-btn{
+				background: #f27207;
+	      background: linear-gradient(to bottom, #f37321 0%,#e26c21 100%);
+  			color: #eb7020;
+	      border:none; 
+	      padding: 5px 30px !important;  
+				margin-bottom: 0;
+				font-weight: normal;
+				text-align: center;
+				text-transform: uppercase;
+				vertical-align: middle;
+				cursor: pointer;
+				white-space: nowrap;
+				padding: 6px 12px;
+				font-size: 15px;
+				line-height: 1.428571429;
+        border-radius: 5px;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				-o-user-select: none;
+				&:disabled {
+			  	color: #d4d4d4;
+			  	background: #999; 
+			  	background: linear-gradient(to bottom, #666 0%,#999 100%);
+			  	cursor: default;
+			  }
+      }
+      .navbar-view.log-out-btn{
+      	display: none;
+      }
+	    .navbar-spotlight{
+				display:none;
+				background-color: #999;
+				padding: 4px 15px;
+				color: #fff;
+				float: right;
+				margin-right: 10px;
+				margin-top: 10px;
+				border:none;
+			}
+	    .edit-wall-nav-btn{
+				display:none;
+				background: transparent;
+				border: 0px;
+				position: absolute;
+				top: 33%;
+				right: 1%;
+				color: #808080;
+				font-size: 15px;
+				text-transform: uppercase;
+				font-weight: lighter;
+				font-family: Benton Sans Book;
+				font-weight: lighter;
+			}
+			.annotable-action{
+	  		float: right;
+				display: none;
+				border: none;
+				background: transparent;
+				margin: 14px 0px 0px;
+				outline: none;
+				&:before
+				{
+					content: "";
+				}
+		  }
+		  .annotable-undo{
+	   		.undo-svg{
+	   			fill: #808080;
+					stroke: #808080;
+	   		}
+	    }
+	    .annotable-toggle{
+	    	margin-right: 10px;
+	    	height:35px;
+	    	.annotable-svg{
+	   			fill: #808080;
+					stroke: #808080;
+	   		}
+	    }
+	    .annotable-action.active{
+	    	border: none;
+				box-shadow: none;
+	    	.annotable-svg{
+	    		fill: #f37321;
+					stroke: #f37321;
+	    	}
+	    }
+	  }
+	}
+} 
+
+// Build Wall Styles 
+.navbar.session.disabled{
+	.container{
+		.navbar-header{
+			.wall-page-title,
+			.build-wall-extended-title,
+			.current-page-title{
+				color: #666666
+			}
+			.edit-btn-modal-display-wrapper{
+
+				.edit-btn-modal-display{
+					fill: #666666;
+		      stroke: #666666; 
+				}
+			}
+			.edit-btn-modal-display-wrapper.disabled:hover{
+	      	cursor: default;
+	    }
+		}
+  }
+}
+.navbar.session{
+	background-color: #000;
+	border: none;
+	-webkit-box-shadow: 0px 2px 8px 0px rgba(50, 50, 50, 0.75) !important;
+	-moz-box-shadow:    0px 2px 8px 0px rgba(50, 50, 50, 0.75) !important;
+	box-shadow:         0px 2px 8px 0px rgba(50, 50, 50, 0.75) !important;
+	.container{
+		.wrapper-left{
+			visibility: hidden;
+			.navbar-toggle{
+				display: block;
+			}
+		}
+		.navbar-header{
+			.wall-page-title-wrapper{
+			  display:inline-block;
+			}
+			.edit-btn-modal-display-wrapper{
+				margin-left: 5px;
+				top: 3px;
+				position: relative;
+				display:inline-block;
+				&:hover{
+          	cursor: pointer
+          }
+				.edit-btn-modal-display{
+					fill: #999999;
+          stroke: #999999; 
+				}
+			}
+			.navbar-brand{
+				color: #fff;
+				.build-wall-extended-title{
+					display: inline-block;
+			  }
+			}
+		}
+		.wrapper-right{
+			.save-session-wall-btn{
+		   	display: inline-block;
+		  }
+		}	
+	}
+}
+
+
+.wall.navbar,
+.spotlight-carousel.navbar{
+	background-color: #fff;
+	color: #ccc;
+	border-bottom: 2px solid #b0b0b0;
+	-webkit-box-shadow: 0px 2px 8px 0px rgba(50, 50, 50, 0.75) !important;
+	-moz-box-shadow:    0px 2px 8px 0px rgba(50, 50, 50, 0.75) !important;
+	box-shadow:         0px 2px 8px 0px rgba(50, 50, 50, 0.75) !important;
+}
+
+//View Wall Style
+ .wall.navbar{
+	.container{
+		.navbar-brand{
+				margin-top: 5px;
+			}
+		.wrapper-left{
+			.navbar-toggle{
+				display: none;
+			}
+			.comparison-reset-button,
+			.edit-wall-nav-btn,
+			.go-to-section-button{
+				display: inline-block;
+				&:hover{
+					cursor: pointer;
+				}
+			}
+		}
+
+		.navbar-header{
+			.navbar-brand-comparison{
+				margin-top: 16px;
+				margin-bottom: 7px;
+				color: #808080;
+			}
+			.navbar-brand{
+				color: #808080;
+				.wall-page-title-wrapper{
+					//padding: 10px 0;
+				}
+				.save-session-wall-btn,
+				.current-page-title{
+			   	display: none;
+			  }
+			  .build-wall-extended-title,
+			  .wall-page-title{
+			  	display: inline-block;
+			  	.glyphicon.glyphicon-edit{
+			  		display: none;
+			  	}
+			  }
+		  }
+		}
+
+		.wrapper-right{
+			.comparison-reset-button, 
+			.navbar-spotlight,
+			.edit-wall-nav-btn{
+				display:inline-block;
+			}
+			.navbar-spotlight .glyphicon.glyphicon-search{
+				margin-top: 0px;
+			}
+			.annotable-action{
+			  display: inline-block;
+			}
+		}
+	}	
+}
+
+// Comparison View Style
+.navbar.comparison{
+	.container .compareDoneBut{
+		display: inline-block;
+	}
+}
+
+//Spotlight styles
+.navbar.spotlight-carousel{
+	.container{
+		.navbar-toggle{
+			display: inline-block;
+			visibility: hidden;
+		}
+		.wrapper-left{
+			.go-to-wall-btn{
+				display:inline-block;
+			}
+			.go-to-section-button{
+				display: none;
+			}
+		}
+		.wrapper-right{
+			.annotable-action{
+				display: inline-block !important;
+			}
+			.edit-wall-nav-btn{
+				display: none;
+			}
+	 }	
+   .navbar-header{
+   	 .navbar-brand{
+   	 	margin-top: 5px;
+   	 }
+	   .wall-page-title,
+	   .build-wall-extended-title{
+	     display:none;
+	   }
+	   .current-page-title{
+	 	   display:inline-block;
+	 	   color: #808080;
+	   }
+		 
+   }
+  }  
+}
+
+// Sections Styles
+.navbar.sections{
+	background-color: transparent;
+	border: none;
+	position: absolute;
+	display:none;
+	.wrapper-right button,
+	.navbar-header{
+		display: none;
+	}
+	 .container 
+	 .wrapper-right 
+	 .navbar-view.log-out-btn{
+  	display: inline-block;
+		color: #fff;
+		margin-top: 10px;
+		margin-right: 35px;
+		float: right;
+   }
+	.navbar-toggle{
+		display: inline-block;
+		visibility: hidden;
+	}
+}
+.navbar.sections{
+	display: block;
+}
+
+.navbar.student-redirect{
+	background-color: transparent;
+	border: none;
+	display:none;
+}
+
+// For ipads
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+	.navbar.spotlight-carousel{
+		.container{
+				.wrapper-left,
+				.wrapper-right{
+					width: 25%;
+				}
+				.navbar-header{
+					width: 50%;
+				}
+			}
+		}
+}
+
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+	.navbar.navbar-fixed-top.disableFixed {
+		position: absolute;
+	}
+}

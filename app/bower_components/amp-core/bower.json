@@ -1,0 +1,10 @@
+{
+	"name": "amp-core",
+  	"version": "1.1.0",
+  	"main": "./amp-core.js",
+  	"homepage": "https://gitorious.poc.currdc.net/prototyping/amp-core",
+  	"dependencies": {
+    	"angular": "~1.2",
+    	"amp-config": "git@gitorious.poc.currdc.net:prototyping/amp-config.git"
+    }
+}

@@ -1,0 +1,65 @@
+[
+        {
+            "id": "ad",
+            "cueText" : "The assistant finds the ad and knows a lot about the Red-Headed League.",
+            "text": "Jail Lorem ipsum dolor sit amet consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed diam voluptua at vero eos et accusam et justo duo dolores et ea rebum stet clita kasd gubergren no sea takimata sanctus est lorem ipsum dolor sit amet.",
+            "response": "",
+            "stage": 1
+        },
+        {
+            "id": "salary",
+            "cueText" : "The very talented assistant works for half salary.",
+            "text": "Street Lorem ipsum dolor sit amet consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.",
+            "response": "",
+            "stage": 1
+        },
+        {
+            "id": "photos",
+            "cueText" : "The assistant spends hours in the cellar developing photos.",
+            "text": "Courthouse Lorem ipsum dolor sit amet consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed diam voluptua at vero eos et accusam et justo duo dolores et ea rebum stet clita kasd gubergren no sea takimata sanctus est lorem ipsum dolor sit amet.",
+            "response": "",
+            "stage": 1
+        },
+        {
+            "id": "red",
+            "cueText" : "Street is full of red-heads, but Mr. Wilson is led to the front and chosen for the league.",
+            "text": "House Lorem ipsum dolor sit amet consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed diam voluptua at vero eos et accusam et justo duo dolores et ea rebum stet clita kasd gubergren no sea takimata sanctus est lorem ipsum dolor sit amet.",
+            "response": "",
+            "stage": 1
+        },
+        {
+            "id": "job",
+            "cueText" : "Wilson must be in the Red-Headed League office from 10 – 2 every day or he loses his salary.",
+            "text": "Store Lorem ipsum dolor sit amet consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.",
+            "response": "",
+            "stage": 1
+        },
+        {
+            "id": "assistant",
+            "cueText" : "Sherlock looks at the knees of the assistant’s trousers.",
+            "text": "Assistant Lorem ipsum dolor sit amet consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed diam voluptua at vero eos et accusam et justo duo dolores et ea rebum stet clita kasd gubergren no sea takimata sanctus est lorem ipsum dolor sit amet.",
+            "response": "",
+            "stage": 2
+        },
+        {
+            "id": "pawnshop",
+            "cueText" : "Sherlock thumps the ground outside Wilson’s pawnshop",
+            "text": "Pawn Lorem ipsum dolor sit amet consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed diam voluptua at vero eos et accusam et justo duo dolores et ea rebum stet clita kasd gubergren no sea takimata sanctus est lorem ipsum dolor sit amet.",
+            "response": "",
+            "stage": 2
+        },
+        {
+            "id": "bank",
+            "cueText" : "There is a bank branch near the pawnshop.",
+            "text": "Bank Lorem ipsum dolor sit amet consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed diam voluptua at vero eos et accusam et justo duo dolores et ea rebum stet clita kasd gubergren no sea takimata sanctus est lorem ipsum dolor sit amet.",
+            "response": "",
+            "stage": 2
+        },
+        {
+            "id": "summary",
+            "cueText" : "Review the clues in Sherlock's notebook and write a brief statement about what Sherlock discovered in his investigation.",
+            "text": "Bank Lorem ipsum dolor sit amet consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed diam voluptua at vero eos et accusam et justo duo dolores et ea rebum stet clita kasd gubergren no sea takimata sanctus est lorem ipsum dolor sit amet.",
+            "response": "",
+            "stage": 3
+        }
+]

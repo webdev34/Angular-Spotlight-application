@@ -1,0 +1,21 @@
+---
+- hosts: all
+  sudo: yes
+  tasks:
+    - name: setup apt-get repositories and update cache
+      apt_repository: repo='ppa:chris-lea/node.js' update_cache=yes
+    - name: install required system packages
+      apt: name={{ item }} state=latest
+      with_items:
+        - git
+        - nodejs
+    - name: install global npm packages
+      npm: name={{ item }} state=latest global=yes
+      with_items:
+        - gulp
+        - bower
+
+- hosts: all
+  tasks:
+    - name: setup known_hosts
+      copy: src=files/known_hosts dest=/home/vagrant/.ssh/known_hosts

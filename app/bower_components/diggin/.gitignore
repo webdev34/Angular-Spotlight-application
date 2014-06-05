@@ -1,0 +1,11 @@
+.DS_Store
+
+.vagrant/
+
+node_modules/
+bower_components/
+
+.sass-cache/
+app/css/
+
+build/

@@ -1,0 +1,10 @@
+{
+	"name": "amp-access",
+  	"version": "1.1.0",
+  	"main": "./amp-access.js",
+  	"homepage": "https://gitorious.poc.currdc.net/prototyping/amp-access",
+  	"dependencies": {
+    	"angular": "~1.2",
+    	"amp-config": "git@gitorious.poc.currdc.net:prototyping/amp-config.git"
+    }
+}

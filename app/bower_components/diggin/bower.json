@@ -1,0 +1,12 @@
+{
+  "name": "diggin",
+  "dependencies": {
+    "angular": "~1.2.16",
+    "foundation": "~5.2.2",
+    "lodash": "~2.4.1",
+    "amp-access": "git@gitorious.poc.currdc.net:prototyping/amp-access.git#v1.1.0",
+    "amp-core" : "git@gitorious.poc.currdc.net:prototyping/amp-core.git#v1.1.0",
+    "amp-config" : "git@gitorious.poc.currdc.net:prototyping/amp-config.git#v1.1.1"
+  },
+  "devDependencies": {}
+}

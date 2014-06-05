@@ -1,0 +1,190 @@
+$icon-font-path: "/styles/fonts/bootstrap";
+
+// bower:scss
+@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
+// endbower
+
+$fa-font-path: "/styles/fonts/font-awesome";
+@import "../bower_components/font-awesome/scss/font-awesome.scss";
+
+@import 'compass';
+@import 'session';
+@import 'navbar';
+@import 'sections';
+@import 'wall';
+@import 'annotable';
+@import 'carousel';
+@import 'modal';
+@import 'font-faces';
+
+$wall-bg: #11bbe4;
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+html {
+    position: relative;
+    min-height: 100%;
+}
+/* Space out content a bit */
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-size: 1.5em;
+    background: -moz-linear-gradient(top,  rgba(14,191,233,1) 0%, rgba(16,133,188,0.92) 34%, rgba(24,164,211,0.97) 73%, rgba(19,145,206,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(14,191,233,1)), color-stop(34%,rgba(16,133,188,0.92)), color-stop(73%,rgba(24,164,211,0.97)), color-stop(100%,rgba(19,145,206,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(14,191,233,1) 0%,rgba(16,133,188,0.92) 34%,rgba(24,164,211,0.97) 73%,rgba(19,145,206,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(14,191,233,1) 0%,rgba(16,133,188,0.92) 34%,rgba(24,164,211,0.97) 73%,rgba(19,145,206,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(14,191,233,1) 0%,rgba(16,133,188,0.92) 34%,rgba(24,164,211,0.97) 73%,rgba(19,145,206,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(14,191,233,1) 0%,rgba(16,133,188,0.92) 34%,rgba(24,164,211,0.97) 73%,rgba(19,145,206,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0ebfe9', endColorstr='#1391ce',GradientType=0 ); /* IE6-9 */
+}
+body.modal-open {
+    margin-right: 15px; /*cancel out the movement when modal is opened*/
+}
+body.annotation-mode {
+    // overflow-y: hidden;
+    // margin-right: 15px;
+}
+body.disable-scroll {
+    overflow-y: hidden;
+}
+ul {
+    padding-left: 0;
+}
+li {
+    list-style: none;
+}
+
+.app-wrapper {
+    // @include clearfix;
+}
+.app-container {
+    // @include clearfix;
+}
+.app-wrapper.carousel-mode {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.app-container.carousel-mode {
+    height: 100%;
+}
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+    margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+    margin: 40px 0;
+}
+
+.marketing p + h4 {
+    margin-top: 28px;
+}
+
+
+// Student Landing Page //
+.student-landing-page-warning-sign-wrapper{
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    color: #fff;
+    text-align: center;
+    margin-top: 20%;
+    h2.student-landing-page-warning-h2 {
+        font-family: amplify;
+    }
+    p.student-landing-page-warning-p{
+        font-family: Benton Sans Book;
+        width: 46%;
+        margin: 0 auto;
+    }
+}
+
+// For ipads
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+    .student-landing-page-warning-sign-wrapper{
+        margin-top: 30%;
+        img{
+          width: 100%;
+          border:none;
+        }
+        h2.student-landing-page-warning-h2 {
+            font-family: amplify;
+        }
+        p.student-landing-page-warning-p{
+            width: 48%;
+        }
+    }
+}
+// Student Landing Page //
+
+
+/* ellipsis */
+$font-size: 24px;
+$lines-to-show: 6;
+.excerpt-container{
+	display: block; /* Fallback for non-webkit */
+	display: -webkit-box;
+	// max-width: 400px;
+	max-height: $font-size*$line-height*$lines-to-show; /* Fallback for non-webkit */
+	margin: 0 auto 10px;
+	font-size: $font-size;
+	line-height: 34px;
+	-webkit-line-clamp: $lines-to-show;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+    word-break: break-word;
+	text-overflow: ellipsis;
+}
+/* ellipsis */

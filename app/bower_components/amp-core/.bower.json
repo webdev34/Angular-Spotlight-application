@@ -1,0 +1,19 @@
+{
+  "name": "amp-core",
+  "version": "1.1.0",
+  "main": "./amp-core.js",
+  "homepage": "https://gitorious.poc.currdc.net/prototyping/amp-core",
+  "dependencies": {
+    "angular": "~1.2",
+    "amp-config": "git@gitorious.poc.currdc.net:prototyping/amp-config.git"
+  },
+  "_release": "1.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.1.0",
+    "commit": "deeabc0f423456d518aa2efae9585fbc8092147c"
+  },
+  "_source": "git@gitorious.poc.currdc.net:prototyping/amp-core.git",
+  "_target": "v1.1.0",
+  "_originalSource": "git@gitorious.poc.currdc.net:prototyping/amp-core.git"
+}

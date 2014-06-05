@@ -1,0 +1,14 @@
+{
+  "name": "ios-html5-drag-drop-shim",
+  "homepage": "https://github.com/timruffles/ios-html5-drag-drop-shim",
+  "version": "0.2.4",
+  "_release": "0.2.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.2.4",
+    "commit": "7c790759307435b8f72f238bfdfd4656ba088671"
+  },
+  "_source": "https://github.com/timruffles/ios-html5-drag-drop-shim.git",
+  "_target": "~0.2.4",
+  "_originalSource": "https://github.com/timruffles/ios-html5-drag-drop-shim.git"
+}

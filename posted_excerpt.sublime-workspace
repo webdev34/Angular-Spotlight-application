@@ -1,0 +1,746 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"student",
+				"studentId"
+			],
+			[
+				"lo",
+				"localName"
+			],
+			[
+				"studentData",
+				"studentDataKey"
+			],
+			[
+				"moda",
+				"modal-body"
+			],
+			[
+				"nav-br",
+				"navbar-brand"
+			],
+			[
+				"po",
+				"position"
+			],
+			[
+				"edit-session",
+				"edit-session-svg"
+			],
+			[
+				"tr",
+				"transparent"
+			],
+			[
+				"current",
+				"currentSession"
+			],
+			[
+				"stu",
+				"studentId"
+			],
+			[
+				"this",
+				"thisStudent"
+			],
+			[
+				"user",
+				"userData"
+			],
+			[
+				"back",
+				"background"
+			],
+			[
+				"ses",
+				"sessionId"
+			],
+			[
+				"amp",
+				"ampRosterService"
+			],
+			[
+				"Sessions",
+				"SessionsService"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"select",
+				"selectedSection"
+			],
+			[
+				"edit",
+				"editMode"
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"currentSe",
+				"currentSessionExcerpts"
+			],
+			[
+				"curre",
+				"currentSession"
+			],
+			[
+				"hist",
+				"historyStep"
+			],
+			[
+				"excerpts",
+				"excerptsRight"
+			],
+			[
+				"ha",
+				"hashKey"
+			],
+			[
+				"exc",
+				"excerptTagsRight"
+			],
+			[
+				"new",
+				"newExcerpt"
+			],
+			[
+				"autho",
+				"authorId"
+			],
+			[
+				"n",
+				"newExcerpt"
+			],
+			[
+				"newxcerpt",
+				"newExcerptLeft"
+			],
+			[
+				"auth",
+				"authorId"
+			],
+			[
+				"cur",
+				"cursor"
+			],
+			[
+				"excertTags",
+				"excertTagsLeft"
+			],
+			[
+				"sesson",
+				"sessionId"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 67.0,
+		"selected_items":
+		[
+			[
+				"listp",
+				"Package Control: List Packages"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"instal package",
+				"Package Control: Install Package"
+			],
+			[
+				"install package",
+				"Package Control: Install Package"
+			],
+			[
+				"install pack",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 67.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib2,os; pf='Package Control.sublime-package'; ipp=sublime.installed_packages_path(); os.makedirs(ipp) if not os.path.exists(ipp) else None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())); open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read()); print 'Please restart Sublime Text to finish installation'"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/kineticjs/server.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/views/session.html",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/scripts/directives/scrolltop.coffee",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/scripts/app.coffee",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/scripts/directives/annotable.coffee",
+		"/Users/EbiBaralaye/Desktop/pemapp/test/spec/directives/scrolltop.coffee",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/bootstrap/less/scaffolding.less",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/styles/_annotable.scss",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/images/annotate.svg",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/amp-config.json",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/sass-bootstrap/js/tests/unit/tab.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/sass-bootstrap/js/tests/unit/tooltip.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/sass-bootstrap/js/tests/unit/transition.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/diggin/app/fonts/AmericanTypewriterStd-Bold.otf",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/diggin/app/fonts/AmericanTypewriterStd-Med.otf",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/fabric/test/lib/event.simulate.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/modernizr/feature-detects/es5-strictmode.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/fabric/test/unit/text.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/fabric/test/unit/canvas_static.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/es5-shim/tests/spec/s-string.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/font-awesome/src/_includes/tests/stacked-inside-anchor.html",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/font-awesome/src/_includes/tests/stacked.html",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/modernizr/test/caniuse_files/style.css",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/modernizr/test/js/setup.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/sass-bootstrap/examples/starter-template/starter-template.css",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/font-awesome/src/glyphicons-test.html",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/font-awesome/src/test-2.3.2.html",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/fabric/test/fixtures/test_script.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/jquery-placeholder/tests/tests.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/bootstrap-datepicker/tests/tests.html",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/font-awesome/src/test.html",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/fabric/test.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/font-awesome/src/_includes/icons/text-editor.html",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/scripts/controllers/modal.coffee",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/styles/_session.scss",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/scripts/services/sessionservice.coffee",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/scripts/services/sectionsservice.coffee",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/styles/_modal.scss",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/scripts/directives/pemamodal.coffee",
+		"/Users/EbiBaralaye/Desktop/pemapp/bower.json",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/index.html",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/views/section.html",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/styles/_sections.scss",
+		"/Users/EbiBaralaye/Desktop/pemapp/Gruntfile.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/modernizr/grunt.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/scripts/amplify_scripts/3a2e773.amp-access.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/styles/main.scss",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/scripts/controllers/nav.coffee",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/scripts/services/authenticationservice.coffee",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/styles/_navbar.scss",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/styles/_carousel.scss",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/bootstrap/less/navbar.less",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/views/navbar.html",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/sass-bootstrap/_includes/nav-about.html",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/scripts/controllers/section.coffee",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/jquery/src/css/var/cssExpand.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/jquery/src/selector-sizzle.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/images/skill_tag.svg",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/allmighty-autocomplete/style/style.css",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/modernizr/feature-detects/style-scoped.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/bootstrap/grunt/bs-raw-files-generator.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/swiper/Gruntfile.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/sass-bootstrap/Gruntfile.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/kineticjs/Gruntfile.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/bootstrap/Gruntfile.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/angular-local-storage/Gruntfile.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/bootstrap/fonts/glyphicons-halflings-regular.svg",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/font-awesome/Gemfile",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/jquery/src/css/addGetHookIf.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/allmighty-autocomplete/.gitignore",
+		"/Users/EbiBaralaye/Development/html5-sortable-angularjs/lib/html5-sortable.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/scripts/amplify_scripts/6540510.amp-access.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/scripts/amplify_scripts/5c5af7b.amp-core.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/scripts/amplify_scripts/0eb4c1f.amp-config.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/scripts/controllers/session.coffee",
+		"/Users/EbiBaralaye/Desktop/pemapp 3/app/scripts/services/sessionservice.coffee",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/diggin/app/scss/_base.scss",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/diggin/app/scss/_foundation-settings.scss",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/scripts/directives/slider.coffee",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/diggin/app/scss/app.scss",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/html5-sortable-angularjs/lib/html5-sortable.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/scripts/controllers/studentredirect.coffee",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/styles/_autocomplete.scss",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/views/studentredirect.html",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/angular-scenario/angular-scenario.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/views/wall.html",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/styles/_wall.scss",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/scripts/controllers/wall.coffee",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/scripts/controllers/carousel.coffee",
+		"/Users/EbiBaralaye/Desktop/pemapp/package.json",
+		"/Users/EbiBaralaye/Desktop/pemapp 3/app/scripts/app.coffee",
+		"/Users/EbiBaralaye/Desktop/pemapp 3/app/scripts/controllers/session.coffee",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/scripts/directives/toggledraggable.coffee",
+		"/Users/EbiBaralaye/Desktop/pemapp 2/app/scripts/services/sessions.json",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/views/pemamodal.html",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/views/carousel.html",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/images/anonymous.svg",
+		"/Users/EbiBaralaye/Desktop/pemapp 3/app/scripts/services/sectionsservice.coffee",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/scripts/services/excerpts.json",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/scripts/services/dateparser.coffee",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/scripts/services/cachefactory.coffee",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/scripts/directives/pemadatepicker.coffee",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/styles/_font-faces.scss",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/allmighty-autocomplete/script/autocomplete.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/images/drag.svg",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/images/edit.svg",
+		"/Users/EbiBaralaye/Desktop/pemapp copy 2/app/scripts/controllers/carousel.coffee",
+		"/Users/EbiBaralaye/Desktop/pemapp copy 2/app/scripts/directives/slider.coffee",
+		"/Users/EbiBaralaye/Desktop/pemapp copy 2/app/views/carousel.html",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/images/add_wall.svg",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/bower_components/angular-mocks/angular-mocks.js",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/images/carousel_right.svg",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/images/delete_skill.svg",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/images/spotlight_off.svg",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/images/carousel_left.svg",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/images/fullscreen.svg",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/images/delete.svg",
+		"/Users/EbiBaralaye/Desktop/pemapp copy 2/app/scripts/services/roster.json",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/images/spotlight_on.svg",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/images/undo.svg",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/images/back.svg",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/images/compare.svg",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/scripts/services/rosterservice.coffee",
+		"/Users/EbiBaralaye/Desktop/pemapp copy 2/app/scripts/services/excerpts.json",
+		"/Users/EbiBaralaye/Desktop/pemapp copy 2/app/scripts/services/sessions.json",
+		"/Users/EbiBaralaye/Desktop/excerpts/source/javascripts/factories/excerpt.coffee",
+		"/Users/EbiBaralaye/Desktop/pemapp copy/app/scripts/controllers/section.coffee",
+		"/Users/EbiBaralaye/Desktop/pemapp/app/scripts/services/sessions.json"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/Users/EbiBaralaye/Desktop/pemapp/app",
+			"/Users/EbiBaralaye/Desktop/pemapp/app,/Users/EbiBaralaye/Desktop/pemapp/app/scripts",
+			"/Users/EbiBaralaye/Desktop/pemapp/app",
+			"/Users/EbiBaralaye/Desktop/pemapp/app/view",
+			"/Users/EbiBaralaye/Desktop/pemapp/app",
+			"/Users/EbiBaralaye/Desktop/pemapp/app/styles",
+			"/Users/EbiBaralaye/Desktop/pemapp/app",
+			"/Users/EbiBaralaye/Desktop/pemapp/app/styles",
+			"/Users/EbiBaralaye/Desktop/pemapp/app",
+			"/Users/EbiBaralaye/Desktop/pemapp/app/styles",
+			"/Users/EbiBaralaye/Desktop/pemapp/app/views",
+			"/Users/EbiBaralaye/Desktop/pemapp/app/styles",
+			"/Users/EbiBaralaye/Desktop/pemapp/app/views",
+			"/Users/EbiBaralaye/Desktop/pemapp/app",
+			"/Users/EbiBaralaye/Desktop/pemapp/app/styles",
+			"/Users/EbiBaralaye/Desktop/pemapp/app",
+			"/Users/EbiBaralaye/Desktop/pemapp/app/styles",
+			"/Users/EbiBaralaye/Desktop/pemapp/app",
+			"/Users/EbiBaralaye/Desktop/pemapp/app/scripts",
+			"/Users/EbiBaralaye/Desktop/pemapp/app/",
+			"/Users/EbiBaralaye/Desktop/pemapp/app/scripts",
+			"/Users/EbiBaralaye/Desktop/pemapp/app",
+			"/Users/EbiBaralaye/Desktop/pemapp/app/scripts",
+			"/Users/EbiBaralaye/Desktop/pemapp/app",
+			"/Users/EbiBaralaye/Desktop/pemapp/app/styles",
+			"/Users/EbiBaralaye/Desktop/pemapp/app/scripts,/Users/EbiBaralaye/Desktop/pemapp/app/styles,/Users/EbiBaralaye/Desktop/pemapp/app/views",
+			"/Users/EbiBaralaye/Desktop/pemapp"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"scroll",
+			"fill",
+			"droppable.over",
+			"droppable",
+			".initial-wall-state-wrapper",
+			"image",
+			"url",
+			"select.styled-drop-down",
+			"initial-wall-state-para-left",
+			"noSessions",
+			"log-out",
+			"add-ses",
+			"15px",
+			"-1",
+			"student-landing-page-warning-sign-wrapper",
+			"log-out-btn",
+			"log-in-btn",
+			"add-session",
+			"13px",
+			"1%",
+			"18%",
+			"20%",
+			"35%",
+			"edit-",
+			"go-to-section-button",
+			".add-session-wrapper",
+			"log-out",
+			"section",
+			"save",
+			"self",
+			"this",
+			"log",
+			".add-session-wrapper",
+			"button",
+			"log",
+			"log out",
+			"button",
+			"save excerpt",
+			"post excerpt",
+			"empty-list",
+			"Drop Here",
+			"active",
+			"drag-h",
+			"drag",
+			"url",
+			"quote-triangle",
+			"section-name",
+			".selected",
+			"current-page-title",
+			"compareMode",
+			"ng-class",
+			"wall-wrapper",
+			"save-",
+			"svg",
+			"-anon",
+			"go-to-wall-span",
+			"triangl",
+			"triangle",
+			"anon",
+			"excerpt-student-nam",
+			"excerpt-student-name",
+			"goToCarousel",
+			"/session/",
+			":sessionId",
+			".quote-triangle",
+			"toggle-draggable",
+			"toggleDraggable",
+			"last ",
+			"Column.newExcerpt)\"",
+			"trash",
+			"toggle",
+			"day-since",
+			">cancel",
+			"console.log",
+			">cancel",
+			"> cancel",
+			">cancel",
+			"> html-sortablecancel",
+			">cancel",
+			"> cancel",
+			"sortable_cross_option",
+			">cancel",
+			"edit-btn",
+			"<text",
+			"draggable",
+			"stop",
+			"  # console.log ev.target.localName\n        # if ev.target.localName is 'textarea'\n        #   angular.forEach $('li.excerpt'), ((value, key) ->\n        #     $(value).removeAttr('draggable')\n        #   )\n        # else\n        #   angular.forEach $('li.excerpt'), ((value, key) ->\n        #    $(value).attr('draggable', true);\n        #    console.log value\n        #   )",
+			"handle is true",
+			"handle is true ",
+			"attr",
+			"<textarea",
+			"line-height",
+			".excerpt-container",
+			"annotable",
+			"20px",
+			"edit-wall-nav-btn",
+			"delete-session-btn",
+			".delete-session-btn",
+			"triangle",
+			"ctrl-btn save-excerpt",
+			"17px;",
+			"margin-top: 17px;",
+			"b2b2b2",
+			"quote-triangle",
+			".quote-inner-triangle",
+			"drag-handl",
+			"quote-inner-triangle",
+			"excerpt-student-nam",
+			"save-session-wall-btn",
+			"22px",
+			"save-session-wall-btn",
+			"goToWall",
+			"toggleAnnotation",
+			".quote-inner-triangle",
+			".annotable-action",
+			"active",
+			"annotable",
+			"go-to-wall-btn",
+			"go-to-section-button",
+			"isEditWall",
+			"-session-wall-btn",
+			"e-session-wall-btn",
+			"your-walls",
+			"editbox",
+			"excerpt-student-name",
+			"toggleStudentName",
+			"student-roster-container",
+			"selectedStudent"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"AuthenticationService.checkLogin(true, $scope);",
+			"disableNav",
+			"#AuthenticationService.checkLogin(true, $scope);",
+			"delete-prefined-svg",
+			"goToWall",
+			"comparison-reset-button",
+			"currentSession",
+			"populateModal",
+			"wallName",
+			"glyphicon-search",
+			"glyphicon-riflescope",
+			"ExcerptService",
+			"controllerName",
+			"AutocompleteTags",
+			"excerpt",
+			"excerptsRight",
+			"excerptsLeft",
+			"createSessionsSubmit",
+			"excerpt-container"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "posted_excerpt.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"se",
+				"scripts/controllers/section.coffee"
+			],
+			[
+				"appc",
+				"scripts/app.coffee"
+			],
+			[
+				"navcoff",
+				"scripts/controllers/nav.coffee"
+			],
+			[
+				"scro",
+				"scripts/directives/scrolltop.coffee"
+			],
+			[
+				"annotable",
+				"scripts/directives/annotable.coffee"
+			],
+			[
+				"test",
+				"bower_components/sass-bootstrap/js/tests/unit/tab.js"
+			],
+			[
+				"navbar",
+				"styles/_navbar.scss"
+			],
+			[
+				"sessions",
+				"styles/_session.scss"
+			],
+			[
+				"ssection",
+				"styles/_sections.scss"
+			],
+			[
+				"grunt",
+				"bower_components/modernizr/grunt.js"
+			],
+			[
+				"index",
+				"index.html"
+			],
+			[
+				"session.sc",
+				"styles/session.scss"
+			],
+			[
+				"mains",
+				"styles/main.scss"
+			],
+			[
+				"autoc",
+				"styles/autocomplete.scss"
+			],
+			[
+				"anno",
+				"styles/_annotable.scss"
+			],
+			[
+				"nav",
+				"scripts/controllers/nav.coffee"
+			],
+			[
+				"pemamo",
+				"scripts/directives/pemamodal.coffee"
+			],
+			[
+				"pemad",
+				"scripts/directives/pemadatepicker.coffee"
+			],
+			[
+				"section",
+				"views/section.html"
+			],
+			[
+				"navcoffe",
+				"scripts/controllers/nav.coffee"
+			],
+			[
+				"sess",
+				"views/session.html"
+			],
+			[
+				"mainsc",
+				"styles/main.scss"
+			],
+			[
+				"datepickers",
+				"styles/datepicker.scss"
+			],
+			[
+				"pema",
+				"scripts/directives/pemadatepicker.coffee"
+			],
+			[
+				"idnex",
+				"index.html"
+			],
+			[
+				"bower",
+				"bower_components/allmighty-autocomplete/bower.json"
+			],
+			[
+				"sessionht",
+				"views/session.html"
+			],
+			[
+				"html5",
+				"bower_components/html5-sortable-angularjs/lib/html5-sortable.js"
+			],
+			[
+				"scaffold",
+				"bower_components/sass-bootstrap/lib/_scaffolding.scss"
+			],
+			[
+				"scaffo",
+				"bower_components/bootstrap/less/scaffolding.less"
+			],
+			[
+				"bootstrap",
+				"bower_components/sass-bootstrap/lib/bootstrap.scss"
+			],
+			[
+				"sessio",
+				"styles/session.scss"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 67.0,
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 296.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -1,0 +1,22 @@
+{
+  "name": "diggin",
+  "dependencies": {
+    "angular": "~1.2.16",
+    "foundation": "~5.2.2",
+    "lodash": "~2.4.1",
+    "amp-access": "git@gitorious.poc.currdc.net:prototyping/amp-access.git#v1.1.0",
+    "amp-core": "git@gitorious.poc.currdc.net:prototyping/amp-core.git#v1.1.0",
+    "amp-config": "git@gitorious.poc.currdc.net:prototyping/amp-config.git#v1.1.1"
+  },
+  "devDependencies": {},
+  "_release": "8e7088a066",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "8e7088a066c692c91360e071519c0d8e9a466a38"
+  },
+  "_source": "git@gitorious.poc.currdc.net:prototyping/diggin.git",
+  "_target": "*",
+  "_originalSource": "git@gitorious.poc.currdc.net:prototyping/diggin.git",
+  "_direct": true
+}

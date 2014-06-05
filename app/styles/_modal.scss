@@ -1,0 +1,189 @@
+/* Modal */
+.modal{
+    height: 100%;
+    width: 100%;
+    .modal-dialog{
+        top: 100px;
+        width: 50%;
+    }
+    .modal-content{
+        background-color: #f7f7f7;
+        .modal-header,
+        .modal-footer{
+            border: none;
+        }
+        select.styled-drop-down,
+        .selected-section-wrapper{
+            text-indent: 36%;
+            top: 10px;
+            position: relative;
+            width: 85%;
+            margin-left: 7%;
+            padding: 10px;
+            background: #1fb28c;
+            border: 1px solid #229e80;
+            box-shadow: none;
+            color: white;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+            -webkit-appearance: none; /* gets rid of default appearance in Webkit browsers*/
+            -moz-appearance: none; /* Get rid of default appearance for older Firefox browsers */
+            -ms-appearance: none; /* get rid of default appearance for IE8, 9 and 10*/
+            appearance: none;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            font-family: Benton Sans Medium;
+            border: 2px solid #18997a;
+            text-transform: capitalize;
+            font-size: 18px;
+        }
+        .selected-section-wrapper{
+            background-color: #daf7ed;
+            display: block;
+            margin-top: 50px;
+            text-indent: 0;
+            color: #494c51;
+            font-family: Benton Sans Medium;
+            text-transform: capitalize;
+        }
+
+        .modal-body{
+
+            .name-your-wall{
+                border: thin solid #d9d9d9;
+                padding: 12px 8px;
+                width: 85%;
+                margin-bottom: 5px;
+                font-family: Benton Sans Book;
+                font-weight: lighter;
+            }
+
+            .name-your-wall::-webkit-input-placeholder{ 
+                color:#a4a5a8; 
+            }
+            .name-your-wall::-moz-placeholder{ 
+                color:#a4a5a8; 
+            }
+            .name-your-wall:-ms-input-placeholder { 
+                color: #a4a5a8; 
+            }
+            .input-append.date-picker-wrapper{
+                color: #666666;
+                font-family: Benton Sans Medium;
+                width: 85%;
+                margin: 10px auto -10px;
+                span{
+                  float: left;
+                }
+            }
+            /* styled drop down */
+            label.add-on{
+                float: right;
+            }
+            #date-picker{
+                width: 70%;
+                background: transparent;
+                border: none;
+                margin-top: 0px;
+                margin-left: 0px;
+                float:left;
+                :focus{
+                    border: none;
+                }
+            }
+            .edit-date-picker-btn{
+                font-family: Benton Sans Book;
+                font-weight: normal;
+                margin-left: 10px;
+                float:right;
+                &:hover{
+                  cursor:pointer;
+                }
+            }
+        }
+        #myModalLabel{
+            color: #666666;
+            margin-right: 5px;
+            font-size: 21px;
+            margin-top: 10px;
+            margin-left: 7%;
+            font-family: Benton Sans Book;
+        }
+    }
+    .modal-footer {
+        text-align: center;
+         button.cancel-modal-btn{
+            background: linear-gradient(to bottom, #e5e5e5 0%, #d0d0d0 100%);
+            color: #818181 !important;
+            border: none;
+            color: #000;
+            width: 44%;
+            -webkit-box-shadow: -1px 2px 21px -4px #999;
+            -moz-box-shadow: -1px 2px 21px -4px #999;
+            box-shadow: -1px 2px 21px -4px #999;
+            padding: 8px;
+            -webkit-border-radius: 7px;
+            -moz-border-radius: 7px;
+            border-radius: 7px;
+            margin-right: 5px;
+        }
+         button.create-wall-modal-btn{
+            background: linear-gradient(to bottom, #f27321 0%, #e36d21 100%);
+            color: #ffffff !important;
+            border: none;
+            color: #000;
+            width: 44%;
+            -webkit-box-shadow: -1px 2px 21px -4px #999;
+           -moz-box-shadow: -1px 2px 21px -4px #999;
+           box-shadow: -1px 2px 21px -4px #999;
+           padding: 8px;
+            -webkit-border-radius: 7px;
+            -moz-border-radius: 7px;
+            border-radius: 7px;
+            &:disabled {
+                color: #d4d4d4; 
+                background: linear-gradient(to bottom, #666 0%,#999 100%);
+            }
+        }
+
+    }
+}
+
+.datepicker.datepicker-dropdown{
+    z-index: 9000 !important;
+}
+
+// For ipads
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+    .modal{
+        .modal-content{
+            .modal-body{
+                #date-picker{
+                  margin-top: -2px;
+                }
+             }
+        }
+    }
+}
+
+// For ipads
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+    .modal{
+        .modal-content{
+            select.styled-drop-down {
+              text-indent: 28% ;
+            }
+        }
+    }
+}

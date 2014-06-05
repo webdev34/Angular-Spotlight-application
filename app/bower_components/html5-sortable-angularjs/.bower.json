@@ -1,0 +1,13 @@
+{
+  "name": "html5-sortable-angularjs",
+  "homepage": "https://github.com/webdev34/html5-sortable-angularjs",
+  "_release": "913147afdc",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "913147afdcde0c66b38bbf762ffe4cb837c86e99"
+  },
+  "_source": "https://github.com/webdev34/html5-sortable-angularjs.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/webdev34/html5-sortable-angularjs.git"
+}

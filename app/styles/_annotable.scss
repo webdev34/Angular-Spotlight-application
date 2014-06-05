@@ -1,0 +1,27 @@
+.annotable-layer {
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 100;
+    &.hidden {
+        display: none;
+    }
+}
+
+.annotable-action {
+    @extend .btn;
+}
+
+.annotable-toggle {
+    @extend .fa;
+    @extend .fa-pencil;
+}
+
+.annotable-undo {
+
+}

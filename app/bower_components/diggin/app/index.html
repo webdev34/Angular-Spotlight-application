@@ -1,0 +1,301 @@
+<!doctype html>
+<html ng-app="diggin">
+<head>
+	<meta charset="utf-8">
+	<title>Caught</title>
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<!-- Disallow zooming. -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<!-- Allow the app to be added to the home screen on iOS devices. -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+	<!-- build:js js/head.js -->
+	<script src="bower_components/modernizr/modernizr.js"></script>
+	<script src="bower_components/fastclick/lib/fastclick.js"></script>
+	<!-- endbuild -->
+
+	<!-- build:css css/all.css -->
+	<link rel="stylesheet" href="css/app.css">
+	<!-- endbuild -->
+</head>
+<body>
+
+	<div ng-controller="MainController">
+
+		<div class="container"
+			ng-init="interface = { state: 'state-initial-screen', isVisible: false };"
+			ng-class="[interface.state]">
+
+
+			<!-- Authorization - Student Login and Entitlements -->
+
+			<div>
+
+	            <div class="panel"
+	                 ng-click="interface.isVisible = true;"
+	                 ng-show="!interface.isVisible"
+	                 style="width: 50px; position: absolute; z-index: 1000000; background-color: #FFF; color: #000; border-style: none;">
+	                ≡ 
+	            </div>
+
+	            <amp-authorization-menu style="position: absolute; left: 0px; top: 0px; z-index: 1000000; height: 100%; margin-bottom: 0px;"
+	                                    class="panel"
+	                                    entitlement-key='7B4F5C94-F1C7-4A4E-AAF7-D4F90157C589'
+	                                    application-name='Caught Red-Handed'
+	                                    application-version='0.0.1'
+	                                    ng-show="interface.isVisible">
+
+	                <div ng-click="interface.isVisible = false;"
+	                     style="padding-bottom: 20px;">
+	                    ≡ 
+	                </div>
+
+	                <!-- bread crumb link to core app -->
+	                <ul class="breadcrumbs" ng-show="interface.isVisible">
+	                    <li><a href="#">Core</a></li>
+	                    <li class="current"><a href="#">{{ applicationName }} </a></li>
+	                </ul>
+
+	                <!-- User -->
+	                <p> 
+	                    User: <strong>{{ session.firstName }} {{ session.lastName }}</strong>
+	                </p>
+
+	                <!-- logout User -->
+	                <button class="button alert expand" ng-click="logout();  interface.isVisible = false;">
+	                    Log me out
+	                </button>
+
+	                <!-- clear user data -->
+	                <button class="button expand" 
+	                        ng-click="interface.isResetting = true;" 
+	                        ng-show="!interface.isResetting;">
+	                    Delete Data?
+	                </button>
+
+	                <div class="button-bar" style="width: 100%;" ng-show="interface.isResetting;">
+	                    <button class="button left" 
+	                            style="width: 40%;" 
+	                            ng-click="interface.isResetting = false;">
+	                        Cancel
+	                    </button>
+	                    <button class="button alert left" 
+	                            style="width: 60%;" 
+	                            ng-click="interface.isResetting = false; interface.isVisible = false; reset(); interface.state = 'state-first-question-list';">
+	                        Delete
+	                    </button>
+	                </div>
+
+	                <!-- support -->
+	                <p> Issues? Contact us at <a href="mailto:support@amplify.com">support@amplify.com</a></p>
+
+	                <!-- legalese -->
+	                <p style="bottom: 5px; position: absolute; font-size: 10px;"> © 2014 Amplify Education, Inc. </p>
+
+	            </amp-authorization-menu>
+	        </div>
+
+
+			
+
+
+			<!-- decals -->
+			
+			<div class="map-decal"></div>
+
+
+
+			<!-- change to state-second-question-list -->
+
+			<div class="go-state-second-question-list"
+				 ng-init="clickOnce = false;"
+				 ng-class="{ visible: interface.state != 'state-second-question-list' && maxAccessibleStage >= 2 && !clickOnce };"
+				 ng-click="interface.state = 'state-second-question-list'; clickOnce = true;">
+			</div>
+
+
+			<!-- Case 1 - Student Prompt 1 -->
+
+			<div class="case-one-screen" 
+				 ng-class="{ visible : interface.state != 'state-initial-screen' }"
+				 ng-click="interface.state = 'state-first-question-list';">
+				<h1>Case 1</h1>
+				<h2>Why is wilson no longer getting paid for being a red-head?</h2>
+				<div class="excerpt {{ excerpt.id }}"
+					 ng-repeat="excerpt in excerpts | filter: { stage: 1 }"
+					 ng-click="interface.editingExcerpt = excerpt">
+
+					<div class="number">{{ $index + 1 }}.</div>
+					<div class="text">{{ excerpt.cueText }}</div>
+				</div>
+			</div>
+
+
+			<!-- Case 2 - Student Responses 1 -->
+
+			<div class="casebook">
+
+				<div class="responses page-1">
+					<h1>Case 2</h1>
+					<h2>What do these clues mean to Sherlock?</h2>
+					<div class="response {{ excerpt.id }}"
+						ng-repeat="excerpt in excerpts | filter: {stage: 1}"
+						ng-class="{
+								empty: !excerpt.response,
+								disabled: excerpt.stage > maxAccessibleStage
+							   }">
+
+						<div class="text"
+							 ng-click="interface.editingExcerpt = excerpt"
+							 ng-bind="excerpt.response">
+						</div>
+					</div>
+				</div>
+
+				<div class="responses page-2">
+					<h1>Case 2</h1>
+					<h2>Visiting Saxe-Coburg Square</h2>
+					<div class="response {{ excerpt.id }}"
+						ng-repeat="excerpt in excerpts | filter: { stage: 2 }"
+						ng-class="{
+								empty: !excerpt.response,
+								disabled: excerpt.stage > maxAccessibleStage
+							   }">
+
+						<div class="text"
+							 ng-click="interface.editingExcerpt = excerpt"
+							 ng-bind="excerpt.response">
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+
+
+			<!-- Tunnel Animation - Student Progress -->
+
+			<div class="progress-screen">
+				<tunnel class="tunnel-animation" progress="progress"></tunnel>
+				<sherlock class="sherlock-animation" progress="progress" from="220" to="30"></sherlock>
+			</div>
+
+
+
+			<!-- Summary - Student Prompt 3 -->
+
+			<div class="final-statement"
+				 ng-click="interface.state = 'state-summary-question'; "
+				 ng-class="{ visible: maxAccessibleStage >= 3 };">
+
+				 <div ng-repeat="excerpt in excerpts | filter: { stage: 3 }"
+ 					  ng-click="interface.editingExcerpt = excerpt"
+ 					  class="response">
+
+					<div class="prompt" 
+						 ng-show="!excerpt.response;">
+						Review the clues in Sherlock's notebook and write a brief statement about what Sherlock discovered in his investigation.
+						<div class="write-statement-button" 
+							 ng-click="interface.editingExcerpt = excerpt"></div>
+					</div>
+
+ 					<div class="response" 
+ 						 ng-show="excerpt.response">
+ 						<div class="text">{{ excerpt.response }}</div>
+ 					</div>
+				</div>
+			</div>
+
+			<!-- Visiting Coburg Square - Student Prompt 2 -->
+
+			<div class="saxon-screen"
+			 	 ng-class="{ visible: maxAccessibleStage >= 2 };"
+				 ng-click="interface.state = 'state-second-question-list';">
+				<div class="saxon-excerpts">
+					<div class="excerpt" 
+						 ng-repeat="excerpt in excerpts | filter: { stage: 2 }" 
+						 ng-click="interface.editingExcerpt = excerpt">
+						<div class="number">{{ $index + 1 }}.</div>
+						<div class="text">{{ excerpt.cueText }}</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Start Screen - Student Explanation -->
+
+			<div class="modal start-screen" 
+				 ng-click="interface.state = 'state-first-question-list';">
+				<div class="start-screen-inner">
+					<div class="intro-text">
+						Mr. Wilson thingamagit to the whatchamacallit...
+					</div>
+
+					<div class="start-button" ng-click="interface.state = 1"></div>
+				</div>
+			</div>
+
+			<!-- I'm Done -->
+
+			<div class="done-button"
+				 ng-class="{ visible: maxAccessibleStage >= 4 };">
+				I'm Done
+			</div>
+
+
+			<!-- Editing Screen			Student Writing Area -->
+
+			<div class="modal modal-editor"
+				 ng-class="{ visible: interface.editingExcerpt }">
+				<div class="editor-screen">
+					<div class="excerpt">
+						<div ng-bind="interface.editingExcerpt.cueText"></div>
+						<div ng-bind="interface.editingExcerpt.text"></div>
+					</div>
+					<div class="response">
+						<textarea ng-model="interface.editingExcerpt.response"></textarea>
+						<button ng-click="interface.editingExcerpt = null; updateMaxAccessibleStage(); save();">Save</button>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- loader -->
+
+			<amp-loader class="modal white"
+						images="[	'images/background_case01.png',
+								'images/background_casebook.png'
+								]"
+						ng-style=" { top : numberLoaded !== numberToLoad && numberToLoad > 0 && '0px' || '-1000px' }">
+
+				<div class="logo-screen">
+
+					<div class="load-bar-bg">
+
+						<div class="load-bar-fg"
+							 ng-style="{ width: (((numberLoaded / numberToLoad) || 0) * 100) + '%' }">
+						</div>
+					</div>
+				</div>
+			</amp-loader>
+
+		</div>
+	</div>
+
+	<!-- build:js js/body.js -->
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<script src="bower_components/foundation/js/foundation.js"></script>
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/lodash/dist/lodash.js"></script>
+	<script src="bower_components/amp-access/amp-access.js"></script>
+	<script src="bower_components/amp-config/amp-config.js"></script>
+	<script src="bower_components/amp-core/amp-core.js"></script>
+
+	<script src="js/scale-viewport.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/progress-animation.js"></script>
+	<!-- endbuild -->
+</body>
+</html>

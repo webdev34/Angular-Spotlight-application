@@ -1,0 +1,171 @@
+@import "../bower_components/swiper/src/idangerous.swiper.css";
+@import "../bower_components/font-awesome/scss/font-awesome.scss";
+$excerpt-bg: #35383d;
+$text: #ffffff;
+
+$font-size : 2em;
+$line-height: 1.4;
+$lines-to-show: 5;
+.carousel-mode .annotable-layer {
+  z-index: 1001;
+}
+.swiper-container{
+  @extend .clearfix;
+  width: 100%;
+  height: 100%;
+  background: $excerpt-bg;
+  .swiper-slide {
+    display: table;
+    float: left;
+    height: 100%;
+    width: 100%;
+    background: $excerpt-bg;
+    color: $text;
+    font-size: $font-size;
+    position: relative;
+    .excerpt-mode-icon{
+      position: absolute;
+      top: 15%;
+      right: 3%;
+      z-index: 1000;
+      .spotlight-svg{
+        fill:#c2c3c4;
+        stroke: #c2c3c4;
+        &:hover{
+          cursor: pointer;
+        }
+      }
+      .spotlight-svg-on{
+        fill:#ffffff;
+        stroke: #ffffff;
+        &:hover{
+          cursor: pointer;
+        }
+      }
+      .spotlight-wrapper-on{
+        display:none;
+        &:hover{
+          cursor: pointer;
+        }
+      }
+      
+    }
+    .slide-wrapper {
+      display: table-cell;
+      padding: 30px 20rem 0;
+      vertical-align: middle;
+      text-align: left;
+    }
+    article {
+      /*ellipsis*/
+      display: block;
+      display: -webkit-box;
+      max-height: $font-size*$line-height*$lines-to-show;
+      margin: 0 auto ;
+      -webkit-line-clamp: $lines-to-show;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #d5d6d7;
+      margin-bottom: 2em;
+      font-size: 32px;
+    }
+    cite {
+      display: block;
+      font-size: 2em;
+      margin-bottom: 1em;
+      text-transform: capitalize;
+
+    }
+    .saved-excerpt-tag{
+      color: #fff;
+      border-color: #969fa6;
+      font-size: 16px;
+    }
+    .tag-select{
+      
+      li{
+        .tag-label{
+          background: transparent;
+          border: thin solid #78797d;
+          color: #cccdce;
+        }
+      }
+    }
+  }
+  .forward {
+      position: absolute;
+      top: 42%;
+      right: 0;
+      height: 10%;
+      width: 20%;
+      z-index: 1000;
+      i {
+        position: absolute;
+        top: 45%;
+        right: 8rem;
+        font-size: 5em;
+        .foward-svg{
+          fill: #5d6064;
+          stroke: #5d6064;
+        }
+      }
+    }
+  .backward {
+    position: absolute;
+    top: 42%;
+    left: 0;
+    height: 10%;
+    width: 20%;
+    z-index: 1000;
+    i{
+      position: absolute;
+      top: 45%;
+      left: 8rem;
+      font-size: 5em;
+      .back-svg{
+        fill: #5d6064;
+        stroke: #5d6064;
+      }
+    }
+  }
+}
+
+.swiper-slide.spotlight{
+  background: #ffbc00;
+  .slide-wrapper{
+    cite,
+    article{
+      color: #000;
+    }
+  }
+  .saved-excerpt-tag{
+    color: white;
+    border: 1px solid #1fb28c;
+    background-color: #1fb28c;
+    font-size: 18px;
+  }
+  .excerpt-mode-icon{
+    .spotlight-wrapper{
+      display: none;
+    }
+    .spotlight-wrapper-on{
+      display: inline-block;
+    }
+  }
+}
+
+.student-name-anonymous{
+  visibility: hidden;
+}
+.swiper-wrapper-annotable{
+  .annotable-layer{
+    .canvas-container,
+    .lower-canvas,
+    .upper-canvas{
+      height: 100% !important;
+    }
+  }
+}
+
+
